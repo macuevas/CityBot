@@ -168,6 +168,6 @@ class ChatbotHelper
     {
         $now = new \DateTime();
         $now->setTimezone(new \DateTimezone('America/Los_Angeles'));
-        echo $now->format('H:i:s');
+        return $now->format('H:i:s');
     }
 }
