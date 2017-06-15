@@ -166,8 +166,8 @@ class ChatbotHelper
 
     public function SayTime()
     {
-        $now = new DateTime();
-        $now->setTimezone(new DateTimezone('America/Los_Angeles'));
+        $now = new \DateTime();
+        $now->setTimezone(new \DateTimezone('America/Los_Angeles'));
         echo $now->format('H:i:s');
     }
 }
