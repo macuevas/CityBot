@@ -144,7 +144,7 @@ class ChatbotHelper
         return "Hello ".$UsrData->getFirstName().", How can I help you ?";
     }
 
-    public fucntion SayWeather()
+    public function SayWeather()
     {
         $key = "394790e3cc664b5a83345444171506";
         $city = 'San Leandro';
