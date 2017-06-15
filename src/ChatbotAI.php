@@ -92,6 +92,25 @@ class ChatbotAI
         return 'The intent of the message: ' . $intent;
     }
 
+
+    public function getIntent($message)
+    {
+        $intent = '';
+        try {
+
+            $response = $this->witClient->get('/message', [
+                'q' => $message,
+            ]);
+
+            // Get the decoded body
+            $response = json_decode((string)$response->getBody(), true);
+            $intent = $response['entities']['intent'][0]['value'] ?? 'no intent recognized';
+        } catch (\Exception $error) {
+            $this->log->warning($error->getMessage());
+        }
+
+        return $intent;
+    }
     /**
      * Get the foreign rates based on the users base (EUR, USD...)
      * @param $message

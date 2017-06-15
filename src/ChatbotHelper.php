@@ -78,11 +78,19 @@ class ChatbotHelper
      */
     public function getAnswer($message, $api = null)
     {
-
         if ($api === 'apiai') {
             return $this->chatbotAI->getApiAIAnswer($message);
         } elseif ($api === 'witai') {
-            return $this->chatbotAI->getWitAIAnswer($message);
+            $key= $this->chatbotAI->getWitAIAnswer($message);
+            switch ($key) {
+                case 'hello':
+                        return SayHello();
+                    break;
+                
+                default:
+                    return "I don´t understend, can ask again."
+                    break;
+            }
         } elseif ($api === 'rates') {
             return $this->chatbotAI->getForeignExchangeRateAnswer($message);
         } else {
@@ -125,5 +133,11 @@ class ChatbotHelper
         }
 
 
+    }
+
+    public function SayHello()
+    {
+        $UsrData=$this->facebookSend->userProfile($this->getSenderId());
+        return "Hello ".$UsrData->getFirstName().", How can I help you";
     }
 }
