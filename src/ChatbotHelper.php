@@ -27,7 +27,7 @@ class ChatbotHelper
         $this->facebookSend = new FbBotApp($this->config['access_token']);
         $this->log = new Logger('general');
         //$this->log->pushHandler(new StreamHandler('debug.log'));
-        $this->log->pushHandler(new StreamHandler('php://stderr')),
+        $this->log->pushHandler(new StreamHandler('php://stderr'));
         $this->input = $this->getInputData();
     }
 
