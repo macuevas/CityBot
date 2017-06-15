@@ -148,7 +148,7 @@ class ChatbotHelper
     {
         $key = "394790e3cc664b5a83345444171506";
         $city = 'San Leandro';
-        $url = "http://api.apixu.com/v1/current.json?key=$key&q=paris&=" ;
+        $url = "http://api.apixu.com/v1/current.json?key=$key&q=$city" ;
         
         $ch = curl_init();  
         curl_setopt($ch,CURLOPT_URL,$url);
