@@ -158,6 +158,6 @@ class ChatbotHelper
         
         $json_output=curl_exec($ch);
         $weather = json_decode($json_output);
-        return "The weather now, is ".$weather->current->temp_f."F";        
+        return "The weather now, is ".$weather->current->condition->text." at ".$weather->current->temp_f." F";        
     }
 }
