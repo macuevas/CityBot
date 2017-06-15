@@ -84,11 +84,11 @@ class ChatbotHelper
             $key= $this->chatbotAI->getWitAIAnswer($message);
             switch ($key) {
                 case 'hello':
-                        return SayHello();
+                        return $this->SayHello();
                     break;
                 
                 default:
-                    return "I don´t understend, can ask again."
+                    return "I don´t understend, can ask again.";
                     break;
             }
         } elseif ($api === 'rates') {
