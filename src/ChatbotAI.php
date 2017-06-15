@@ -89,7 +89,7 @@ class ChatbotAI
             $this->log->warning($error->getMessage());
         }
 
-        return 'The intent of the message: ' . $intent;
+        return  $intent;
     }
 
 

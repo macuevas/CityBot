@@ -88,7 +88,7 @@ class ChatbotHelper
                     break;
                 
                 default:
-                    return "I don´t understend, can ask again.";
+                    return "I don´t understend, can ask again. [".$key."]";
                     break;
             }
         } elseif ($api === 'rates') {
