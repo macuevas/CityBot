@@ -20,7 +20,7 @@ if ($senderId && $chatbotHelper->isMessage()) {
     $message = $chatbotHelper->getMessage();
 
     // Example 1: Get a static message back
-    $replyMessage = $chatbotHelper->getAnswer($message);
+    $replyMessage = $chatbotHelper->getAnswer($message,"witai");
 
     // Example 2: Get foreign exchange rates
 //     $replyMessage = $chatbotHelper->getAnswer($message, 'rates');
