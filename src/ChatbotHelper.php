@@ -90,6 +90,9 @@ class ChatbotHelper
                 case 'weather':
                         return $this->SayWeather();
                     break;
+                case 'time'
+                        return $this->SayTime();
+                    break;
                 
                 default:
                     return "I don´t understend, can ask again. [".$key."]";
@@ -159,5 +162,12 @@ class ChatbotHelper
         $json_output=curl_exec($ch);
         $weather = json_decode($json_output);
         return "The weather now, is ".$weather->current->condition->text." at ".$weather->current->temp_f." F";        
+    }
+
+    public function SayTime()
+    {
+        $now = new DateTime();
+        $now->setTimezone(new DateTimezone('America/Los_Angeles'));
+        echo $now->format('H:i:s');
     }
 }
