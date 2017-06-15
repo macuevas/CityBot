@@ -86,6 +86,9 @@ class ChatbotHelper
                 case 'hello':
                         return $this->SayHello();
                     break;
+                case 'weather':
+                        return $this->SayWeather();
+                    break;
                 
                 default:
                     return "I don´t understend, can ask again. [".$key."]";
@@ -138,6 +141,21 @@ class ChatbotHelper
     public function SayHello()
     {
         $UsrData=$this->facebookSend->userProfile($this->getSenderId());
-        return "Hello ".$UsrData->getFirstName().", How can I help you";
+        return "Hello ".$UsrData->getFirstName().", How can I help you ?";
+    }
+
+    public fucntion SayWeather()
+    {
+        $key = "394790e3cc664b5a83345444171506";
+        $city = 'San Leandro';
+        $url = "http://api.apixu.com/v1/current.json?key=$key&q=paris&=" ;
+        
+        $ch = curl_init();  
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        
+        $json_output=curl_exec($ch);
+        $weather = json_decode($json_output);
+        return "The weather now, is ".$wheather->temp_f;
     }
 }
