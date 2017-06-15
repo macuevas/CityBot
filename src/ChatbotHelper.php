@@ -90,7 +90,7 @@ class ChatbotHelper
                 case 'weather':
                         return $this->SayWeather();
                     break;
-                case 'time'
+                case 'time':
                         return $this->SayTime();
                     break;
                 
