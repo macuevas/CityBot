@@ -93,9 +93,12 @@ class ChatbotHelper
                 case 'time':
                         return $this->SayTime();
                     break;
+                case 'get_from':
+                        return $this->SayFrom();
+                    break;
                 
                 default:
-                    return "I don´t understend, can ask again. [".$key."]";
+                    return "I don´t understand, can ask again. [".$key."]";
                     break;
             }
         } elseif ($api === 'rates') {
@@ -169,5 +172,10 @@ class ChatbotHelper
         $now = new \DateTime();
         $now->setTimezone(new \DateTimezone('America/Los_Angeles'));
         return "The local time is ".$now->format('H:i:s')." in 24Hrs Format" ;
+    }
+
+     public function SayFrom()
+    {        
+        return "I'm From San Leandro..." ;
     }
 }
