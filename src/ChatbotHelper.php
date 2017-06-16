@@ -96,9 +96,11 @@ class ChatbotHelper
                 case 'get_from':
                         return $this->SayFrom();
                     break;
-                
+                case 'yourname':
+                        return $this->SayName();
+                    break;
                 default:
-                    return "I don´t understand, can ask again. [".$key."]";
+                    return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";
                     break;
             }
         } elseif ($api === 'rates') {
@@ -177,5 +179,10 @@ class ChatbotHelper
      public function SayFrom()
     {        
         return "I'm From San Leandro..." ;
+    }
+
+    public function SayName()
+    {        
+        return "My Name is CityBot" ;
     }
 }
