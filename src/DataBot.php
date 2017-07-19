@@ -1,6 +1,6 @@
 <?php
 
-public class DataBot
+class DataBot
 {
 	public $server;
 	public $database;
