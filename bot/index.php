@@ -1,6 +1,7 @@
 <?php
 
 use DonMarkus\ChatbotHelper;
+use Bexi\DataBot:
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -20,7 +21,21 @@ if ($senderId && $chatbotHelper->isMessage()) {
     $message = $chatbotHelper->getMessage();
 
     // Example 1: Get a static message back
-    $replyMessage = $chatbotHelper->getAnswer($message,"witai");
+    if (substr($message,0,4)=="cmd:")
+    {
+        $comando=substr($message,4);
+         switch ($key) {
+            case 'testdb':
+                $Data = new Databot();
+                $replyMessage =  $Data->TestConection();
+                break;
+            default:
+                return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";
+                break;
+         }
+    }else{
+        $replyMessage = $chatbotHelper->getAnswer($message,"witai");
+    }
 
     // Example 2: Get foreign exchange rates
 //     $replyMessage = $chatbotHelper->getAnswer($message, 'rates');

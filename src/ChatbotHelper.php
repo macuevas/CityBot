@@ -9,8 +9,9 @@ use Monolog\Logger;
 use pimax\FbBotApp;
 use pimax\Messages\Message;
 
+
 class ChatbotHelper
-{
+{    
 
     public $config;
     protected $chatbotAI;
@@ -100,7 +101,7 @@ class ChatbotHelper
                         return $this->SayName();
                     break;
                 default:
-                    return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";
+                    return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";                    
                     break;
             }
         } elseif ($api === 'rates') {
@@ -150,7 +151,7 @@ class ChatbotHelper
     public function SayHello()
     {
         $UsrData=$this->facebookSend->userProfile($this->getSenderId());
-        return "Hello ".$UsrData->getFirstName().", How can I help you ?";
+        return "Hello ".$UsrData->getFirstName().", How can I help you ? do have made something on San Leandro??";
     }
 
     public function SayWeather()
