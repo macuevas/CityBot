@@ -23,6 +23,7 @@ if ($senderId && $chatbotHelper->isMessage()) {
     // Example 1: Get a static message back
     if (substr($message,0,4)=="cmd:")
     {
+        file_put_contents("php://stderr", "Message Is a Command\n");
         $comando=substr($message,4);
          switch ($key) {
             case 'getversion':
