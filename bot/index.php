@@ -15,12 +15,14 @@ $chatbotHelper->verifyWebhook($_REQUEST);
 
 $senderId = $chatbotHelper->getSenderId();
 
+file_put_contents("php://stderr", $chatbotHelper->getInput());
+
 if ($senderId && $chatbotHelper->isMessage()) {
 
     // Get the user's message
     $message = $chatbotHelper->getMessage();
 
-    file_put_contents("php://stderr", $chatbotHelper->getInput());
+
 
     // Example 1: Get a static message back
     if (substr($message,0,4)=="cmd:")
