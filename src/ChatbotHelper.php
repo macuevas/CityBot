@@ -35,12 +35,12 @@ class ChatbotHelper
     /**
      * @return mixed
      */
-    private function getInputData()
+    public function getInputData()
     {
         return $input;
     }
 
-    public function getInput()
+    private function getInput()
     {
         return json_decode(file_get_contents('php://input'), true);
     }
