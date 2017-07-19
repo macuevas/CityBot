@@ -29,7 +29,7 @@ class ChatbotHelper
         $this->log = new Logger('general');
         //$this->log->pushHandler(new StreamHandler('debug.log'));
         $this->log->pushHandler(new StreamHandler('php://stderr'));
-        $this->input = $this->getInputData();
+        $this->input = $this->getInput();
     }
 
     /**
