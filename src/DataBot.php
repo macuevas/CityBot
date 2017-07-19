@@ -7,6 +7,7 @@ class DataBot
 	$database= "vikingosol_citybot";
 	$user= "usrcitybot";
 	$pass = "gW_dk893";
+	$version = "0.1";
 
 	public TestConection()
 	{
@@ -20,5 +21,11 @@ class DataBot
 			$res = "Conexion Exitosa";
 		}
 		return $res;
+	}
+
+	public GetVersion()
+	{
+		file_put_contents("php://stderr", "GetVersion\n v" . $this->version );
+		return $version;
 	}
 }

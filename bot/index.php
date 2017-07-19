@@ -25,6 +25,10 @@ if ($senderId && $chatbotHelper->isMessage()) {
     {
         $comando=substr($message,4);
          switch ($key) {
+            case 'getversion':
+                $Data = new Databot();
+                $replyMessage =  $Data->GetVersion();
+                break;
             case 'testdb':
                 $Data = new Databot();
                 $replyMessage =  $Data->TestConection();
