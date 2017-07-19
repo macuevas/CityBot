@@ -14,7 +14,7 @@ class DataBot
 		$this->$database= "vikingosol_citybot";
 		$this->$user= "usrcitybot";
 		$this->$pass = "gW_dk893";
-		$this->$CityBotVersion = "0.1";
+		$this->$CityBotVersion = "v0.2";
     }
 
 	public function TestConection()
@@ -33,7 +33,7 @@ class DataBot
 
 	public function GetVersion()
 	{
-		file_put_contents("php://stderr", "GetVersion\n v" . $this->CityBotVersion );
+		file_put_contents("php://stderr", "GetVersion\n" . $this->CityBotVersion );
 		return $this-$CityBotVersion;
 	}
 }
