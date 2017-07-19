@@ -129,6 +129,9 @@ class ChatbotHelper
                     break;
                 case "Where_place":
                         return "Places";
+                case "events":
+                        return "There is no events yet!!!";
+
                 default:
                     return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";                    
                     break;

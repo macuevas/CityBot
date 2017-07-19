@@ -17,6 +17,8 @@ $senderId = $chatbotHelper->getSenderId();
 
 file_put_contents("php://stderr", print_r($chatbotHelper->getInput(),true));
 
+file_put_contents("php://stderr", "isPostback=".$chatbotHelper->isPostback());
+
 if ($senderId && $chatbotHelper->isMessage()) 
 {
 
