@@ -69,7 +69,7 @@ if ($senderId && $chatbotHelper->isMessage())
     file_put_contents("php://stderr", "PAYLOAD=".$payload);
     switch ($payload) {
             case 'GET_STARTED_PAYLOAD':
-                 $chatbotHelper->send($senderId, $this->SayHello());
+                 $chatbotHelper->send($senderId, $chatbotHelper->SayHello());
             break;
     }
 }
