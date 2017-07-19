@@ -15,7 +15,7 @@ $chatbotHelper->verifyWebhook($_REQUEST);
 
 $senderId = $chatbotHelper->getSenderId();
 
-file_put_contents("php://stderr", $chatbotHelper->getInput());
+file_put_contents("php://stderr", print_r($chatbotHelper->getInput(),true));
 
 if ($senderId && $chatbotHelper->isMessage()) {
 
