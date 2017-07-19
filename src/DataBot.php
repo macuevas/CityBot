@@ -18,7 +18,7 @@ class DataBot
 		$this->$version = "0.1";
     }
 
-	public TestConection()
+	public function TestConection()
 	{
 		file_put_contents("php://stderr", "TestConection\n");
 		$myConn = new mysqli($server, $user, $pass, $database);
@@ -32,7 +32,7 @@ class DataBot
 		return $res;
 	}
 
-	public GetVersion()
+	public function GetVersion()
 	{
 		file_put_contents("php://stderr", "GetVersion\n v" . $this->version );
 		return $version;
