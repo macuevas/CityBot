@@ -34,6 +34,6 @@ class DataBot
 	public function GetVersion()
 	{
 		file_put_contents("php://stderr", "GetVersion\n" . $this->CityBotVersion );
-		return $this-CityBotVersion;
+		return $this->CityBotVersion;
 	}
 }
