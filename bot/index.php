@@ -64,7 +64,7 @@ if ($senderId && $chatbotHelper->isMessage())
 
 }elseif ($senderId && $chatbotHelper->isPostback()) {
     $payload= $chatbotHelper->getPayload();
-
+    file_put_contents("php://stderr", "PAYLOAD=".$payload);
     switch ($payload) {
             case 'GET_STARTED_PAYLOAD':
                  $chatbotHelper->send($senderId, $this->SayHello());
