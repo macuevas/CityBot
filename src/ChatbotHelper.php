@@ -40,7 +40,7 @@ class ChatbotHelper
         return $input;
     }
 
-    private function getInput()
+    public function getInput()
     {
         return json_decode(file_get_contents('php://input'), true);
     }
