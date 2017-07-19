@@ -1,7 +1,7 @@
 <?php
 
 use DonMarkus\ChatbotHelper;
-use Bexi\DataBot:
+use Bexi\DataBot;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
