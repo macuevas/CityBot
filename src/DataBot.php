@@ -20,7 +20,7 @@ class DataBot
 	public function TestConection()
 	{
 		file_put_contents("php://stderr", "TestConection\n");
-		$myConn = new mysqli($server, $user, $pass, $database);
+		$myConn = new mysqli($this->server, $this->user, $this->pass, $this->database);
 		if ($myConn->connect_errno) {
 			$res="Error: FAllo al conctarse a la Mysql Debido a: \n Error No: " . $myConn->connect_errno . " \n Error: " . $myConn->connect_error;	
 			file_put_contents("php://stderr", $res);		
@@ -34,6 +34,6 @@ class DataBot
 	public function GetVersion()
 	{
 		file_put_contents("php://stderr", "GetVersion\n" . $this->CityBotVersion );
-		return $this-$CityBotVersion;
+		return $this-CityBotVersion;
 	}
 }
