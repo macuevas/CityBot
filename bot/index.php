@@ -28,11 +28,11 @@ if ($senderId && $chatbotHelper->isMessage()) {
         file_put_contents("php://stderr", "Command: " . $comando . "\n");
          switch ($comando) {
             case 'getversion':
-                $Data = new Databot();
+                $Data = new DataBot();
                 $replyMessage =  $Data->GetVersion();
                 break;
             case 'testdb':
-                $Data = new Databot();
+                $Data = new DataBot();
                 $replyMessage =  $Data->TestConection();
                 break;
             default:
