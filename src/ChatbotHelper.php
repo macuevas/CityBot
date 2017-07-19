@@ -84,7 +84,7 @@ class ChatbotHelper
      */
     public function isPostback()
     {
-        return isset($this->input['entry'][0]['messaging'][0]['postback']);
+        return isset($this->input['entry'][0]['messaging'][0]['postback']["payload"]);
 
     }
 
