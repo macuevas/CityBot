@@ -69,7 +69,9 @@ if ($senderId && $chatbotHelper->isMessage())
     file_put_contents("php://stderr", "PAYLOAD=".$payload);
     switch ($payload) {
             case 'GET_STARTED_PAYLOAD':
-                 $chatbotHelper->send($senderId, $chatbotHelper->SayHello());
+            #https://blooming-spire-13615.herokuapp.com/resources/welcome.png
+                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/welcome.png");
+                $chatbotHelper->send($senderId, $chatbotHelper->SayHello());
             break;
     }
 }

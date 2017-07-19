@@ -8,6 +8,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use pimax\FbBotApp;
 use pimax\Messages\Message;
+use pimax\Messages\ImageMessage;
 
 
 class ChatbotHelper
@@ -18,6 +19,7 @@ class ChatbotHelper
     protected $facebookSend;
     protected $log;
     private $input;
+    private $resPATH;
 
     public function __construct()
     {
@@ -30,6 +32,7 @@ class ChatbotHelper
         //$this->log->pushHandler(new StreamHandler('debug.log'));
         $this->log->pushHandler(new StreamHandler('php://stderr'));
         $this->input = $this->getInput();
+        $this->resPATH = "https://blooming-spire-13615.herokuapp.com/resources/";
     }
 
     /**
@@ -153,6 +156,12 @@ class ChatbotHelper
     public function send($senderId, string $replyMessage)
     {
         return $this->facebookSend->send(new Message($senderId, $replyMessage));
+    }
+
+
+    public function sendImg($senderId, string $ImageURL)
+    {
+        return $this->facebookSend->send( new ImageMessage($senderId, $ImageURL));    
     }
 
 
