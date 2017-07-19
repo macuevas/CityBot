@@ -183,7 +183,7 @@ class ChatbotHelper
     public function SayHello()
     {
         $UsrData=$this->facebookSend->userProfile($this->getSenderId());
-        return "Hello ".$UsrData->getFirstName().", How can I help you ? do have made something on San Leandro??";
+        return "Hello ".$UsrData->getFirstName().", My name is City Bot and I am here to show you all the cool things you can do at your San Leandro Library, Museum and Historic Places.";
     }
 
     public function SayWeather()
