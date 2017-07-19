@@ -17,7 +17,8 @@ $senderId = $chatbotHelper->getSenderId();
 
 file_put_contents("php://stderr", print_r($chatbotHelper->getInput(),true));
 
-if ($senderId && $chatbotHelper->isMessage()) {
+if ($senderId && $chatbotHelper->isMessage()) 
+{
 
     // Get the user's message
     $message = $chatbotHelper->getMessage();
@@ -61,4 +62,12 @@ if ($senderId && $chatbotHelper->isMessage()) {
     // Send the answer back to the Facebook chat
     $chatbotHelper->send($senderId, $replyMessage);
 
+}elseif ($senderId && $chatbotHelper->isPostback()) {
+    $payload= $chatbotHelper->getPayload();
+
+    switch ($payload) {
+            case 'GET_STARTED_PAYLOAD':
+                 $chatbotHelper->send($senderId, $this->SayHello());
+            break;
+    }
 }

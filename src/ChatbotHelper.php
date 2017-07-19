@@ -77,6 +77,27 @@ class ChatbotHelper
 
     }
 
+     /**
+     * Check if the callback is a POSTBACK
+     * @return bool
+     * @internal param $input
+     */
+    public function isPostback()
+    {
+        return isset($this->input['entry'][0]['messaging'][0]['postback']);
+
+    }
+
+    /**
+     * Get the user's message from input
+     * @return mixed
+     * @internal param $input
+     */
+    public function getPayload()
+    {
+        return $this->input['entry'][0]['messaging'][0]['postback']["payload"];
+    }
+
     /**
      * Get the answer to a given user's message
      * @param null $api
