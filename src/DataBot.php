@@ -3,11 +3,20 @@ namespace Bexi;
 
 class DataBot
 {
-	$server="74.208.86.206";
-	$database= "vikingosol_citybot";
-	$user= "usrcitybot";
-	$pass = "gW_dk893";
-	$version = "0.1";
+	public $server;
+	public $database;
+	public $user;
+	public $pass;
+	public $version;
+
+	public function __construct()
+    {
+        $this->$server="74.208.86.206";
+		$this->$database= "vikingosol_citybot";
+		$this->$user= "usrcitybot";
+		$this->$pass = "gW_dk893";
+		$this->$version = "0.1";
+    }
 
 	public TestConection()
 	{
