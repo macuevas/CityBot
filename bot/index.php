@@ -25,7 +25,8 @@ if ($senderId && $chatbotHelper->isMessage()) {
     {
         file_put_contents("php://stderr", "Message Is a Command\n");
         $comando=substr($message,4);
-         switch ($key) {
+        file_put_contents("php://stderr", "Command: " . $comando . "\n");
+         switch ($comando) {
             case 'getversion':
                 $Data = new Databot();
                 $replyMessage =  $Data->GetVersion();
