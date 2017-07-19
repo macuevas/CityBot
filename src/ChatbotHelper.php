@@ -37,6 +37,11 @@ class ChatbotHelper
      */
     private function getInputData()
     {
+        return $input;
+    }
+
+    private function getInput()
+    {
         return json_decode(file_get_contents('php://input'), true);
     }
 
@@ -80,6 +85,7 @@ class ChatbotHelper
      */
     public function getAnswer($message, $api = null)
     {
+
         if ($api === 'apiai') {
             return $this->chatbotAI->getApiAIAnswer($message);
         } elseif ($api === 'witai') {
