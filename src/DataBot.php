@@ -54,13 +54,13 @@ class DataBot
 		file_put_contents("php://stderr", "GetLocation\n" );
 		$sql = "SELECT dir,hours FROM Places WHERE name  like '". $Place . "'";
 		if ($res1 = $myConn2->query($sql)) {
-			if ($res->num_rows === 0) {
+			if ($res1->num_rows === 0) {
 			    // ¡Oh, no ha filas! Unas veces es lo previsto, pero otras
 			    // no. Nosotros decidimos. En este caso, ¿podría haber sido
 			    // actor_id demasiado grande? 
 			    return "I´m sorry, I don't know than place. :(";
 			}else{
-				$place = $res->fetch_assoc();
+				$place = $res1->fetch_assoc();
 				return $place["dir"];
 			}
 		}else{
