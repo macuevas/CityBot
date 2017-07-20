@@ -55,6 +55,9 @@ class DataBot
 			    // no. Nosotros decidimos. En este caso, ¿podría haber sido
 			    // actor_id demasiado grande? 
 			    return "I´m sorry, I don't know than place. :(";
+			}else{
+				$place = $resultado->fetch_assoc();
+				return $place["dir"];
 			}
 		}else{
 			return "I'm sorry, I have some intertal problem";
