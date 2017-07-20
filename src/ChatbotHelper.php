@@ -132,6 +132,7 @@ class ChatbotHelper
                         return $this->SayName();
                     break;
                 case "Where_place":
+                        file_put_contents("php://stderr", "Where_place");
                         $Bot = new DataBot();
                         $place = $this->chatbotAI->getLocalsearchquery();
                         #$resData = $Data->GetLocation($place);
