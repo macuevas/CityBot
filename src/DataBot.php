@@ -48,7 +48,7 @@ class DataBot
 		if ($myConn2->connect_errno) {
 		}
 
-		sql = "SELECT dir,hours FROM Places WHERE name  like '". $Place . "'";
+		$sql = "SELECT dir,hours FROM Places WHERE name  like '". $Place . "'";
 		if ($res1 = $mysqli->query($sql)) {
 			if ($res->num_rows === 0) {
 			    // ¡Oh, no ha filas! Unas veces es lo previsto, pero otras
