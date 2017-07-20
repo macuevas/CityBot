@@ -10,7 +10,7 @@ use pimax\FbBotApp;
 use pimax\Messages\Message;
 use pimax\Messages\ImageMessage;
 
-#include_once "DataBot.php";
+require_once() "DataBot.php");
 
 class ChatbotHelper
 {    
@@ -18,6 +18,7 @@ class ChatbotHelper
     public $config;
     protected $chatbotAI;
     protected $facebookSend;
+    protected $BotData;
     protected $log;
     private $input;
     private $resPATH;
@@ -29,6 +30,7 @@ class ChatbotHelper
         $this->config = require __DIR__ . '/config.php';
         $this->chatbotAI = new ChatbotAI($this->config);
         $this->facebookSend = new FbBotApp($this->config['access_token']);
+        $this->BotData = new DataBot();
         $this->log = new Logger('general');
         //$this->log->pushHandler(new StreamHandler('debug.log'));
         $this->log->pushHandler(new StreamHandler('php://stderr'));
@@ -132,11 +134,10 @@ class ChatbotHelper
                         return $this->SayName();
                     break;
                 case "Where_place":
-                        file_put_contents("php://stderr", "Where_place");
-                        $Bot = new DataBot();
+                        file_put_contents("php://stderr", "Where_place");                        
                         $place = $this->chatbotAI->getLocalsearchquery();
-                        #$resData = $Data->GetLocation($place);
-                        return $place;
+                        $resData = $BotData->GetLocation($place);
+                        return $resData;
                 case "events":
                         return "There is no events yet!!!";
 
