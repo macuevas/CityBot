@@ -19,7 +19,6 @@ class ChatbotHelper
     public $config;
     protected $chatbotAI;
     protected $facebookSend;
-    protected $BotData;
     protected $log;
     private $input;
     private $resPATH;
@@ -30,8 +29,7 @@ class ChatbotHelper
         $dotenv->load();
         $this->config = require __DIR__ . '/config.php';
         $this->chatbotAI = new ChatbotAI($this->config);
-        $this->facebookSend = new FbBotApp($this->config['access_token']);
-        $this->BotData = new DataBot();
+        $this->facebookSend = new FbBotApp($this->config['access_token']);        
         $this->log = new Logger('general');
         //$this->log->pushHandler(new StreamHandler('debug.log'));
         $this->log->pushHandler(new StreamHandler('php://stderr'));
@@ -137,7 +135,9 @@ class ChatbotHelper
                 case "Where_place":
                         file_put_contents("php://stderr", "Where_place");                        
                         $place = $this->chatbotAI->getLocalsearchquery();
-                        $resData = $BotData->GetLocation($place);
+                        file_put_contents("php://stderr", "place=".$place);
+                        $Data = new Databot();
+                        $resData = $Data->GetLocation($place);
                         return $resData;
                 case "events":
                         return "There is no events yet!!!";
