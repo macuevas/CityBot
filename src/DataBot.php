@@ -67,6 +67,8 @@ class DataBot
 				if ($place["hours"]!="")
 				{
 					return $place["dir"] . "\n" . $place["hours"];
+				}else{
+					return $place["dir"];
 				}
 			}
 		}else{
