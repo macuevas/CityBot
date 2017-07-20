@@ -1,5 +1,7 @@
 <?php
 
+require_once ("DataBot.php");
+
 namespace DonMarkus;
 
 
@@ -10,7 +12,7 @@ use pimax\FbBotApp;
 use pimax\Messages\Message;
 use pimax\Messages\ImageMessage;
 
-require_once ("DataBot.php");
+
 
 class ChatbotHelper
 {    
