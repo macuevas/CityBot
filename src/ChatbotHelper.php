@@ -10,7 +10,7 @@ use pimax\FbBotApp;
 use pimax\Messages\Message;
 use pimax\Messages\ImageMessage;
 
-include "DataBot.php";
+include_once "DataBot.php";
 
 class ChatbotHelper
 {    
@@ -132,9 +132,9 @@ class ChatbotHelper
                         return $this->SayName();
                     break;
                 case "Where_place":
-                       # $Data = new DataBot();
+                        $Data = new DataBot();
                         $place = $this->chatbotAI->getLocalsearchquery();
-                        #$resData = $Data->GetLocation($place);
+                        $resData = $Data->GetLocation($place);
                         return $resData;
                 case "events":
                         return "There is no events yet!!!";

@@ -1,7 +1,7 @@
 <?php
 
 use DonMarkus\ChatbotHelper;
-include "../src/DataBot.php";
+include_once "../src/DataBot.php";
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
