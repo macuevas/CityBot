@@ -48,6 +48,8 @@ class DataBot
 
 	public function GetLocation($Place)
 	{
+		$Place = "%".str_replac(" ","%",$Place)."%";
+		$Place = str_replac("%%","%",$Place);
 		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
 		if ($myConn2->connect_errno) {
 		}
