@@ -132,7 +132,7 @@ class ChatbotHelper
                         return $this->SayName();
                     break;
                 case "Where_place":
-                       # $Data = new DataBot();
+                        $Bot = new DataBot();
                         $place = $this->chatbotAI->getLocalsearchquery();
                         #$resData = $Data->GetLocation($place);
                         return $place;
