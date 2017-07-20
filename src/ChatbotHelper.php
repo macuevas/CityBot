@@ -135,7 +135,7 @@ class ChatbotHelper
                        # $Data = new DataBot();
                         $place = $this->chatbotAI->getLocalsearchquery();
                         #$resData = $Data->GetLocation($place);
-                        return $resData;
+                        return $place;
                 case "events":
                         return "There is no events yet!!!";
 
