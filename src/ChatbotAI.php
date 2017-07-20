@@ -85,6 +85,7 @@ class ChatbotAI
             // Get the decoded body
             $response = json_decode((string)$response->getBody(), true);
             $intent = $response['entities']['intent'][0]['value'] ?? 'no intent recognized';
+            $this->LastResponse = $response;
             file_put_contents("php://stderr",print_r($response,true)."\n");
         } catch (\Exception $error) {
             $this->log->warning($error->getMessage());
@@ -113,6 +114,20 @@ class ChatbotAI
 
         return $intent;
     }
+
+    public function getLocalsearchquery()
+    {
+        $intent = '';
+        try {
+            
+            $Localsq = $this->LastResponse['entities']['local_search_query'][0]['value'] ?? 'no local search query recognized';
+        } catch (\Exception $error) {
+            $this->log->warning($error->getMessage());
+        }
+
+        return $Localsq;
+    }
+
     /**
      * Get the foreign rates based on the users base (EUR, USD...)
      * @param $message

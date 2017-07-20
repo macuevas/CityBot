@@ -131,7 +131,10 @@ class ChatbotHelper
                         return $this->SayName();
                     break;
                 case "Where_place":
-                        return "Places";
+                        $Data = new DataBot();
+                        $place = $this->getLocalsearchquery();
+                        $resData = $Data->GetLocation($place);
+                        return $resData;
                 case "events":
                         return "There is no events yet!!!";
 
