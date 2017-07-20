@@ -2,6 +2,8 @@
 
 namespace Bexi;
 
+use Mysqli;
+
 class DataBot
 {
 	public $server;

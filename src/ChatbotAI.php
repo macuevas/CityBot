@@ -7,7 +7,6 @@ use ApiAi\Client;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
-use Mysqli;
 
 class ChatbotAI
 {
