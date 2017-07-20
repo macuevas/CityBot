@@ -60,7 +60,6 @@ class DataBot
 			return "I'm sorry, I have some intertal problem";
 		}
 			
-	}
-		}
+	}		
 }
 
