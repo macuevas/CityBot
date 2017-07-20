@@ -10,6 +10,7 @@ use pimax\FbBotApp;
 use pimax\Messages\Message;
 use pimax\Messages\ImageMessage;
 
+include "DataBot.php";
 
 class ChatbotHelper
 {    
