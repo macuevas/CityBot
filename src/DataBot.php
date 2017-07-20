@@ -1,5 +1,7 @@
 <?php
 
+namespace Bexi;
+
 class DataBot
 {
 	public $server;

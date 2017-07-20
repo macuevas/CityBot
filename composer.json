@@ -23,7 +23,8 @@
   },
   "autoload": {
     "psr-4": {
-      "DonMarkus\\": "src/"
+      "DonMarkus\\": "src/",
+      "Bexi\\": "src/"
     }
   },
   "license": "MIT",
