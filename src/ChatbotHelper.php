@@ -1,7 +1,5 @@
 <?php
 
-require_once ("DataBot.php");
-
 namespace DonMarkus;
 
 
@@ -11,6 +9,7 @@ use Monolog\Logger;
 use pimax\FbBotApp;
 use pimax\Messages\Message;
 use pimax\Messages\ImageMessage;
+use Bexi\DataBot;
 
 
 
