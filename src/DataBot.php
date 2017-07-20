@@ -63,7 +63,10 @@ class DataBot
 			    return "I´m sorry, I don't know than place. :(";
 			}else{
 				$place = $res1->fetch_assoc();
-				return $place["dir"];
+				if ($place["hours"]!="")
+				{
+					return $place["dir"] . "\n" . $place["hours"];
+				}
 			}
 		}else{
 			return "I'm sorry, I have some intertal problem";

@@ -1,7 +1,9 @@
 <?php
 
 use DonMarkus\ChatbotHelper;
-require_once ("../src/DataBot.php");
+use Bexi\DataBot;
+
+#require_once ("../src/DataBot.php");
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -16,8 +18,6 @@ $chatbotHelper->verifyWebhook($_REQUEST);
 $senderId = $chatbotHelper->getSenderId();
 
 file_put_contents("php://stderr", print_r($chatbotHelper->getInputData(),true));
-
-file_put_contents("php://stderr", "isPostback=".$chatbotHelper->isPostback());
 
 if ($senderId && $chatbotHelper->isMessage()) 
 {
@@ -62,7 +62,10 @@ if ($senderId && $chatbotHelper->isMessage())
     // $replyMessage = $chatbotHelper->getAnswer($message, 'witai');
 
     // Send the answer back to the Facebook chat
-    $chatbotHelper->send($senderId, $replyMessage);
+    if ($replyMessage!="")
+    {
+        $chatbotHelper->send($senderId, $replyMessage);
+    }
 
 }elseif ($senderId && $chatbotHelper->isPostback()) {
     $payload= $chatbotHelper->getPayload();
