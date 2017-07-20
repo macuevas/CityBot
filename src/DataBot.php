@@ -60,7 +60,7 @@ class DataBot
 			    // actor_id demasiado grande? 
 			    return "I´m sorry, I don't know than place. :(";
 			}else{
-				$place = $resultado->fetch_assoc();
+				$place = $res->fetch_assoc();
 				return $place["dir"];
 			}
 		}else{
