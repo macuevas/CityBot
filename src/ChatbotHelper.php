@@ -141,6 +141,8 @@ class ChatbotHelper
                         return $resData;
                 case "events":
                         return "There is no events yet!!!";
+                case "Manuel":
+                        return "Manuel is the best programmer in hostory for ever, and very handsome too. He  developed me. ;) (y)";
 
                 default:
                     return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";                    
