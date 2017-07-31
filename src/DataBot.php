@@ -66,9 +66,9 @@ class DataBot
 				$place = $res1->fetch_assoc();
 				if ($place["hours"]!="")
 				{
-					return htmlentities($place["dir"] . "\n" . $place["hours"]);
+					return $place["dir"] . "\n" . $place["hours"];
 				}else{
-					return htmlentities($place["dir"]);
+					return $place["dir"];
 				}
 			}
 		}else{
