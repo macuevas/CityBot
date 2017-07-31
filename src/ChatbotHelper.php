@@ -120,6 +120,7 @@ class ChatbotHelper
             return $this->chatbotAI->getApiAIAnswer($message);
         } elseif ($api === 'witai') {
             $key= $this->chatbotAI->getWitAIAnswer($message);
+            file_put_contents("php://stderr", "KEY=".$key);  
             switch ($key) {
                 case 'hello':
                         $this->SayHello();
