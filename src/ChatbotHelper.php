@@ -138,7 +138,7 @@ class ChatbotHelper
                 case 'yourname':
                         return $this->SayName();
                     break;
-                case "Where_place":
+                case "where_place":
                         file_put_contents("php://stderr", "Where_place");                        
                         $place = $this->chatbotAI->getLocalsearchquery();
                         file_put_contents("php://stderr", "place=".$place);
