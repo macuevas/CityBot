@@ -144,7 +144,7 @@ class ChatbotHelper
                         file_put_contents("php://stderr", "place=".$place);
                         $Data = new Databot();
                         $resData = $Data->GetLocation($place);
-
+                        file_put_contents("php://stderr", $resData);
                         return $resData;
                     break;
                 case "events":
