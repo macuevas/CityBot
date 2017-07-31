@@ -61,7 +61,7 @@ class DataBot
 			    // ¡Oh, no ha filas! Unas veces es lo previsto, pero otras
 			    // no. Nosotros decidimos. En este caso, ¿podría haber sido
 			    // actor_id demasiado grande? 
-			    return "I´m sorry, I don't know than place. :(";
+			    return "I´m sorry, I don't know that place. :(";
 			}else{
 				$place = $res1->fetch_assoc();
 				if ($place["hours"]!="")
