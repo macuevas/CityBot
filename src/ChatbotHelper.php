@@ -11,6 +11,7 @@ use pimax\Messages\Message;
 use pimax\Messages\ImageMessage;
 use pimax\Messages\StructuredMessage;
 use pimax\Messages\MessageButton;
+use pimax\Messages\Attachment;
 use Bexi\DataBot;
 
 

@@ -80,6 +80,10 @@ if ($senderId && $chatbotHelper->isMessage())
             case 'CMD_OK':
                 $chatbotHelper->send($senderId,"Great!!!");
                 $chatbotHelper->send($senderId,"Here are a few tips on how to use me:");
+                $chatbotHelper->send($senderId,"Main Menu");
+                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png");
+                $chatbotHelper->send($senderId,"Ask Me Anythings");                
+                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/02_type.png");                
             break;
 
     }
