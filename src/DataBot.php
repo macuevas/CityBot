@@ -72,7 +72,7 @@ class DataBot
 				}
 			}
 		}else{
-			return "I'm sorry, I have some intertal problem";
+			return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\""; 
 		}
 			
 	}		
