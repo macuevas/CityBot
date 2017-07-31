@@ -235,7 +235,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
     {
         $UsrData=$this->facebookSend->userProfile($this->getSenderId());
         $this->send($this->getSenderId(), "Hello ".$UsrData->getFirstName().", My name is City Bot and I am here to show you all the cool things you can do at your San Leandro Library, Museum and Historic Places.");
-         $this->send($this->getSenderId(), "Are you ready ?");
+        //$this->send($this->getSenderId(), "Are you ready ?");
         $this->facebookSend->send(new StructuredMessage($this->getSenderId(),
           StructuredMessage::TYPE_BUTTON,
           [
