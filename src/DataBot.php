@@ -53,7 +53,7 @@ class DataBot
 		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
 		if ($myConn2->connect_errno) {
 		}
-		file_put_contents("php://stderr", "GetLocation\n" );
+		file_put_contents("php://stderr", "GetLocation\n" . $Place );
 		$sql = "SELECT dir,hours FROM Places WHERE name  like '". $Place . "'";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
