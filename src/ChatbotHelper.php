@@ -118,7 +118,8 @@ class ChatbotHelper
             $key= $this->chatbotAI->getWitAIAnswer($message);
             switch ($key) {
                 case 'hello':
-                        return $this->SayHello();
+                        $this->SayHello();
+                        return "";
                     break;
                 case 'weather':
                         return $this->SayWeather();
@@ -230,7 +231,8 @@ Stories, songs, and play for families. Our evening program offers terrific books
     public function SayHello()
     {
         $UsrData=$this->facebookSend->userProfile($this->getSenderId());
-        return "Hello ".$UsrData->getFirstName().", My name is City Bot and I am here to show you all the cool things you can do at your San Leandro Library, Museum and Historic Places.";
+        $this->send($this->getSenderId(), "Hello ".$UsrData->getFirstName().", My name is City Bot and I am here to show you all the cool things you can do at your San Leandro Library, Museum and Historic Places.");
+        
     }
 
     public function SayWeather()
