@@ -77,5 +77,10 @@ if ($senderId && $chatbotHelper->isMessage())
                 //$chatbotHelper->send($senderId, $chatbotHelper->SayHello());
                 $chatbotHelper->SayHello();
             break;
+            case 'CMD_OK':
+                $chatbotHelper->send($senderId,"Great!!!");
+                $chatbotHelper->send($senderId,"Here are a few tips on how to use me:");
+            break;
+
     }
 }
