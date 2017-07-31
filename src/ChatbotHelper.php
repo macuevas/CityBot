@@ -160,12 +160,15 @@ class ChatbotHelper
                         return "No. We do not have ESL Classes.  You may call the San Leandro Adult School at 510-667-6287 for information on ESL Classes. You may call Chabot College (Hayward, CA) at 510-723-6600 or Laney College (Oakland, CA) at 510- 834-5740 for more information about ESL Classes.";
                         break;
                 case "story_time":
-                         file_put_contents("php://stderr", "story_time");    
-                        return "Ages 0- 12 months: Baby Time (English) Tuesdays at 9:30 AM. Babies Pre-walkers ages 0 to 12 months and caregivers bond during this short session with books, songs, and plays.                                                                                Cuentacuentos: Canciones y cuentos para ninos pequenos/ Martes 10:30 AM Main Library.
+                        file_put_contents("php://stderr", "story_time");    
+                        $respuesta = <<<RESP
+                        Ages 0- 12 months: Baby Time (English) Tuesdays at 9:30 AM. Babies Pre-walkers ages 0 to 12 months and caregivers bond during this short session with books, songs, and plays.                                                                                Cuentacuentos: Canciones y cuentos para ninos pequenos/ Martes 10:30 AM Main Library.
 Disfruta libros, cuentos, y canciones en Espanol en la biblioteca con tus ninos pequenos. Main Library 
 Toddler Story time:  Wednesday 9:30 AM and 10:30 AM. Stories, rhymes, and romps for ages 1-3. Just the right pace for you and your totally nonstop toddler up to age 3.
 Preschool Story time: Stories, songs, and play for preschoolers. Wednesdays at 1:30 PM. Main Library
-Pattycakes Story Time: Thursdays at 10:30 AM. For children ages 2-5. All children must be accompanied by an adult. (Manor Library)";
+Pattycakes Story Time: Thursdays at 10:30 AM. For children ages 2-5. All children must be accompanied by an adult. (Manor Library)
+RESP;
+                        return $respuesta;
                         break;
                     case "family_story":
                         return "Family Story time: Wednesday 7:00 PM 
