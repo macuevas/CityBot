@@ -74,7 +74,8 @@ if ($senderId && $chatbotHelper->isMessage())
             case 'GET_STARTED_PAYLOAD':
             #https://blooming-spire-13615.herokuapp.com/resources/welcome.png
                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/welcome.png");
-                $chatbotHelper->send($senderId, $chatbotHelper->SayHello());
+                //$chatbotHelper->send($senderId, $chatbotHelper->SayHello());
+                $chatbotHelper->SayHello();
             break;
     }
 }

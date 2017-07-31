@@ -241,7 +241,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
           [
               'text' => 'Are you ready ?',
               'buttons' => [
-                  new MessageButton(MessageButton::TYPE_POSTBACK, 'OK')
+                  new MessageButton(MessageButton::TYPE_POSTBACK, 'OK',"CMD_OK")
               ]
           ]
       )); 
