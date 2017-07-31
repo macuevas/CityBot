@@ -85,6 +85,15 @@ if ($senderId && $chatbotHelper->isMessage())
                 $chatbotHelper->send($senderId,"Ask Me Anything");                
                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/02_type.png");                
             break;
+            case "CMD_PLACES":
+                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/03_places.png");
+            break;
+            case "CMD_EVENTS":
+                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/04_events.png");
+            break;
+            case "CMD_ACTIVITIES":
+                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/05_activities.png");
+            break;
 
     }
 }
