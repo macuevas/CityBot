@@ -144,6 +144,7 @@ class ChatbotHelper
                         file_put_contents("php://stderr", "place=".$place);
                         $Data = new Databot();
                         $resData = $Data->GetLocation($place);
+                        
                         return $resData;
                 case "events":
                         return "There is no events yet!!!";
