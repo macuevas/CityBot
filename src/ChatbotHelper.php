@@ -301,6 +301,6 @@ Stories, songs, and play for families. Our evening program offers terrific books
         ]);
         $response = $fb->get('/116264538402761/events');
         file_put_contents("php://stderr", $response); 
-        return $response
+        return $response;
     }
 }
