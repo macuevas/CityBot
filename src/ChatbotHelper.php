@@ -1,7 +1,7 @@
 <?php
 
 namespace DonMarkus;
-require '../vendor/.composer/autoload.php';
+require 'Facebook/Facebook.php';
 
 use Dotenv\Dotenv;
 use Monolog\Handler\StreamHandler;
