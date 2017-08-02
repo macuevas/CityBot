@@ -47,17 +47,26 @@ if ($senderId && $chatbotHelper->isMessage())
             case "test2":
                             // Send Structured message
                             $chatbotHelper->sendMsj(new StructuredMessage($senderId,
-                            StructuredMessage::TYPE_GENERIC,
-                            [
-                            'text' => 'Choose category',
-                            'buttons' => [
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'All jobs'),
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'Web Development'),
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'Software Development & IT')
-                            ],
-                            'image_url' => 'https://blooming-spire-13615.herokuapp.com/resources/01_menu.png',
-                            'subtitle' => 'its nice',
-                            ]
+                                StructuredMessage::TYPE_GENERIC,
+                                [
+                                    'elements' => [
+                                        new MessageElement("First item", "Item description", "", [
+                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
+                                            new MessageButton(MessageButton::TYPE_WEB, 'Web link', 'http://facebook.com')
+                                        ]),
+                                        new MessageElement("Second item", "Item description", "", [
+                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
+                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'Second button')
+                                        ]),
+                                        new MessageElement("Third item", "Item description", "", [
+                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
+                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'Second button')
+                                        ])
+                                    ]
+                                ],
+                                [ 
+                                    new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
+                                ]
                             ));
                             break;
                 break;
