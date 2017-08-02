@@ -1,6 +1,7 @@
 <?php
 
 namespace DonMarkus;
+require 'vendor/.composer/autoload.php';
 
 use Dotenv\Dotenv;
 use Monolog\Handler\StreamHandler;
