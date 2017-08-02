@@ -5,6 +5,7 @@ use Bexi\DataBot;
 use pimax\Messages\StructuredMessage;
 use pimax\Messages\MessageButton;
 use pimax\Messages\MessageElement;
+use pimax\Messages\QuickReply;
 use pimax\Messages\QuickReplyButton;
 
 
