@@ -299,5 +299,8 @@ Stories, songs, and play for families. Our evening program offers terrific books
           'default_graph_version' => 'v2.10',
           'default_access_token' => '1347080372047215|q-RxSd7MDCZtXP_UOvcP5Bk5Lqw', // optional
         ]);
+        $response = $fb->get('/116264538402761/events');
+        file_put_contents("php://stderr", $response); 
+        return $response
     }
 }
