@@ -149,7 +149,7 @@ class ChatbotHelper
                     break;
                 case "events":
                         $this->GetEvents();
-                        return "There is no events yet!!!";
+                        return "There is no events yet!";
                         break;
                 case "Manuel":
                         return "Manuel is the best programmer in history for ever, and very handsome too. He  developed me. ;) (y)";
