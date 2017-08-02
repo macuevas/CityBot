@@ -50,7 +50,7 @@ if ($senderId && $chatbotHelper->isMessage())
                 break;
             case "test2":
                             // Send Structured message
-                            $chatbotHelper->sendMsj(new StructuredMessage($senderId,
+                           /* $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                                 StructuredMessage::TYPE_GENERIC,
                                 [
                                     'elements' => [
@@ -68,6 +68,41 @@ if ($senderId && $chatbotHelper->isMessage())
                                         ])
                                     ]
                                 ]                                
+                            ));*/
+                            $chatbotHelper->sendMsj(new StructuredMessage($message['sender']['id'],
+                                StructuredMessage::TYPE_LIST,
+                                [
+                                    'elements' => [
+                                        new MessageElement(
+                                            'Classic T-Shirt Collection', // title
+                                            'See all our colors', // subtitle
+                                            'http://bit.ly/2pYCuIB', // image_url
+                                            [ // buttons
+                                                new MessageButton(MessageButton::TYPE_POSTBACK, // type
+                                                    'View', // title
+                                                    'POSTBACK' // postback value
+                                                )
+                                            ]
+                                        ),
+                                        new MessageElement(
+                                            'Classic White T-Shirt', // title
+                                            '100% Cotton, 200% Comfortable', // subtitle
+                                            'http://bit.ly/2pb1hqh', // image_url
+                                            [ // buttons
+                                                new MessageButton(MessageButton::TYPE_WEB, // type
+                                                    'View', // title
+                                                    'https://google.com' // url
+                                                )
+                                            ]
+                                        )
+                                    ],
+                                    'buttons' => [
+                                        new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
+                                    ]
+                                ],
+                                [
+                                    new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
+                                ]
                             ));
                             break;
                 break;
