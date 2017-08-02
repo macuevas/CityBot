@@ -148,6 +148,7 @@ class ChatbotHelper
                         return $resData;
                     break;
                 case "events":
+                        $this->GetEvents();
                         return "There is no events yet!!!";
                         break;
                 case "Manuel":
@@ -289,5 +290,14 @@ Stories, songs, and play for families. Our evening program offers terrific books
     public function SayName()
     {        
         return "My Name is CityBot" ;
+    }
+
+    public function GetEvents(){
+        $fb = new \Facebook\Facebook([
+          'app_id' => '1347080372047215',
+          'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
+          'default_graph_version' => 'v2.10',
+          'default_access_token' => '1347080372047215|q-RxSd7MDCZtXP_UOvcP5Bk5Lqw', // optional
+        ]);
     }
 }
