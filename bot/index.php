@@ -2,6 +2,7 @@
 
 use DonMarkus\ChatbotHelper;
 use Bexi\DataBot;
+use pimax\Messages\StructuredMessage;
 
 #require_once ("../src/DataBot.php");
 
