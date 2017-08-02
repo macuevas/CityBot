@@ -67,10 +67,7 @@ if ($senderId && $chatbotHelper->isMessage())
                                             new MessageButton(MessageButton::TYPE_POSTBACK, 'Second button')
                                         ])
                                     ]
-                                ],
-                                [ 
-                                    new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
-                                ]
+                                ]                                
                             ));
                             break;
                 break;
