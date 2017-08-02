@@ -211,9 +211,9 @@ Stories, songs, and play for families. Our evening program offers terrific books
         return $this->facebookSend->send( new ImageMessage($senderId, $ImageURL));    
     }
 
-    public function sendMsj($senderId, Message $Msg)
+    public function sendMsj( Message $Msg)
     {
-        return $this->facebookSend->send( $Msg);    
+        return $this->facebookSend->send($Msg);    
     }
 
 
