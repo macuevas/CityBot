@@ -4,6 +4,7 @@ use DonMarkus\ChatbotHelper;
 use Bexi\DataBot;
 use pimax\Messages\StructuredMessage;
 use pimax\Messages\MessageButton;
+use pimax\Messages\MessageElement;
 
 #require_once ("../src/DataBot.php");
 
