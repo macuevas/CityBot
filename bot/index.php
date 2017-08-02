@@ -42,6 +42,23 @@ if ($senderId && $chatbotHelper->isMessage())
                 $Data = new DataBot();
                 $replyMessage =  $Data->TestConection();
                 break;
+            case "test2":
+                            // Send Structured message
+                            $chatbotHelper->sendMsj(new StructuredMessage($senderId,
+                            StructuredMessage::TYPE_GENERIC,
+                            [
+                            'text' => 'Choose category',
+                            'buttons' => [
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'All jobs'),
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'Web Development'),
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'Software Development & IT')
+                            ],
+                            'image_url' => 'https://blooming-spire-13615.herokuapp.com/resources/01_menu.png',
+                            'subtitle' => 'its nice',
+                            ]
+                            ));
+                            break;
+                break;
             default:
                 return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";
                 break;

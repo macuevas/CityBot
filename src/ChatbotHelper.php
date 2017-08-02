@@ -211,6 +211,11 @@ Stories, songs, and play for families. Our evening program offers terrific books
         return $this->facebookSend->send( new ImageMessage($senderId, $ImageURL));    
     }
 
+    public function sendMsj($senderId, Message $Msg)
+    {
+        return $this->facebookSend->send( $Msg);    
+    }
+
 
     /**
      * Verify Facebook webhook
