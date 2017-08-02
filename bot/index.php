@@ -50,57 +50,19 @@ if ($senderId && $chatbotHelper->isMessage())
                 break;
             case "test2":
                             // Send Structured message
-                           /* $chatbotHelper->sendMsj(new StructuredMessage($senderId,
+                            $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                                 StructuredMessage::TYPE_GENERIC,
                                 [
                                     'elements' => [
-                                        new MessageElement("First item", "Item description", "", [
+                                        new MessageElement("First item", "Item description", "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png", [
                                             new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
                                             new MessageButton(MessageButton::TYPE_WEB, 'Web link', 'http://facebook.com')
                                         ]),
-                                        new MessageElement("Second item", "Item description", "", [
-                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
-                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'Second button')
-                                        ]),
-                                        new MessageElement("Third item", "Item description", "", [
-                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
-                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'Second button')
+                                        new MessageElement("Second item", "Item description", "https://blooming-spire-13615.herokuapp.com/resources/02_type.png", [
                                         ])
                                     ]
                                 ]                                
-                            ));*/
-                            $chatbotHelper->sendMsj(new StructuredMessage($senderId,
-                                StructuredMessage::TYPE_LIST,
-                                [
-                                    'elements' => [
-                                        new MessageElement(
-                                            'Classic T-Shirt Collection', // title
-                                            'See all our colors', // subtitle
-                                            'http://bit.ly/2pYCuIB', // image_url
-                                            [ // buttons
-                                                new MessageButton(MessageButton::TYPE_POSTBACK, // type
-                                                    'View', // title
-                                                    'POSTBACK' // postback value
-                                                )
-                                            ]
-                                        ),
-                                        new MessageElement(
-                                            'Classic White T-Shirt', // title
-                                            '100% Cotton, 200% Comfortable', // subtitle
-                                            'http://bit.ly/2pb1hqh', // image_url
-                                            [ // buttons
-                                                new MessageButton(MessageButton::TYPE_WEB, // type
-                                                    'View', // title
-                                                    'https://google.com' // url
-                                                )
-                                            ]
-                                        )
-                                    ],
-                                    'buttons' => [
-                                        new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
-                                    ]
-                                ]
-                            ));
+                            ));                           
                             break;
                 break;
             default:
