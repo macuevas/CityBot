@@ -301,6 +301,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
           'default_access_token' => '1347080372047215|q-RxSd7MDCZtXP_UOvcP5Bk5Lqw', // optional
         ]);
         try {
+            file_put_contents("php://stderr", "Request"); 
             $response = $fb->get('/116264538402761/events');
             file_put_contents("php://stderr", $response); 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
