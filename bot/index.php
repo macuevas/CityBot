@@ -50,15 +50,16 @@ if ($senderId && $chatbotHelper->isMessage())
                 break;
             case "test2":
                             // Send Structured message
+                            $chatbotHelper->send($senderId,"Great!!!");
+                            $chatbotHelper->send($senderId,"Here are a few tips on how to use me:");
                             $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                                 StructuredMessage::TYPE_GENERIC,
                                 [
                                     'elements' => [
-                                        new MessageElement("First item", "Item description", "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png", [
-                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'First button'),
-                                            new MessageButton(MessageButton::TYPE_WEB, 'Web link', 'http://facebook.com')
+                                        new MessageElement("Main Menu", "", "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png", [
+                                            #new MessageButton(MessageButton::TYPE_POSTBACK, 'First button')                                         
                                         ]),
-                                        new MessageElement("Second item", "Item description", "https://blooming-spire-13615.herokuapp.com/resources/02_type.png", [
+                                        new MessageElement("Ask Me Anything", "", "https://blooming-spire-13615.herokuapp.com/resources/02_type.png", [
                                         ])
                                     ]
                                 ]                                
