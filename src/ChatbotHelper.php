@@ -2,8 +2,6 @@
 
 namespace DonMarkus;
 
-require_once 'src/Facebook/autoload.php';
-
 use Dotenv\Dotenv;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
