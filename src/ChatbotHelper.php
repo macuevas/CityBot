@@ -293,6 +293,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
     }
 
     public function GetEvents(){
+        file_put_contents("php://stderr", "GetEvents"); 
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
           'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
