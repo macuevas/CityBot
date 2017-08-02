@@ -303,7 +303,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
         try {
             file_put_contents("php://stderr", "Request"); 
             $response = $fb->get('/116264538402761/events');
-            file_put_contents("php://stderr", $response->getDecodedBody()); 
+            file_put_contents("php://stderr", print_r($response->getDecodedBody(),true); 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
           exit;
