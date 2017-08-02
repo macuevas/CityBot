@@ -69,7 +69,7 @@ if ($senderId && $chatbotHelper->isMessage())
                                     ]
                                 ]                                
                             ));*/
-                            $chatbotHelper->sendMsj(new StructuredMessage($message['sender']['id'],
+                            $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                                 StructuredMessage::TYPE_LIST,
                                 [
                                     'elements' => [
@@ -99,9 +99,6 @@ if ($senderId && $chatbotHelper->isMessage())
                                     'buttons' => [
                                         new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                                     ]
-                                ],
-                                [
-                                    new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
                                 ]
                             ));
                             break;
