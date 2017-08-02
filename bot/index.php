@@ -5,6 +5,7 @@ use Bexi\DataBot;
 use pimax\Messages\StructuredMessage;
 use pimax\Messages\MessageButton;
 use pimax\Messages\MessageElement;
+use pimax\Messages\QuickReplyButton;
 
 #require_once ("../src/DataBot.php");
 
