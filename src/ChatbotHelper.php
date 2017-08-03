@@ -324,7 +324,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 {
                     break;
                 }
-                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
+                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=normal'); 
                 $resimg=$response2->getDecodedBody();
                 $respuesta []= new MessageElement($ev2["name"],"[".$ev2["date"]."]".$ev2["description"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_POSTBACK, 'View')                                         
@@ -352,6 +352,6 @@ Stories, songs, and play for families. Our evening program offers terrific books
     }
 
    static  function sortFunction( $a, $b ) {
-        return strtotime($a["date"]) - strtotime($b["date"]);
+        return  strtotime($b["date"])-strtotime($a["date"]);
     }
 }
