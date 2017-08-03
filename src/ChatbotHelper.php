@@ -149,7 +149,7 @@ class ChatbotHelper
                         return $resData;
                     break;
                 case "events":
-                        $fecha = strtotime($this->chatbotAI->getLocalsearchquery());
+                        $fecha = strtotime($this->chatbotAI->getDatetime());
                         file_put_contents("php://stderr", "Events=".$fecha);    
 
                         $this->GetEvents($fecha);
