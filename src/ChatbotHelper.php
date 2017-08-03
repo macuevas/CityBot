@@ -12,7 +12,7 @@ use pimax\Messages\ImageMessage;
 use pimax\Messages\StructuredMessage;
 use pimax\Messages\MessageButton;
 use pimax\Messages\Attachment;
-use pimax\Messages\MessageElement
+use pimax\Messages\MessageElement;
 use Bexi\DataBot;
 
 
