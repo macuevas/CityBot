@@ -174,13 +174,19 @@ class ChatbotHelper
 
                         return ;
                         break;
-                    case "family_story":
+                case "family_story":
                         $this->send($this->getSenderId(),"Family Story time: Wednesday 7:00 PM");
                         $this->send($this->getSenderId(),"Stories, songs, and play for families. Our evening program offers terrific books, songs and rhymes for kids of all ages to enjoy. Wear your pajamas! Main Library.");
                         return ;
                         break;
                 case "lawyers":
                         return "Lawyers in the Library takes place on the Third Thursday of the Month- therefore: Thursday, July 20. Thursday, August 17, September 21, October 19, November 16, and December 21. Sign ups begin at 5:30 PM. The Volunteer Lawyers give 15 minute consultations from 6:00 PM – 8:00 PM.";
+                        break;
+                case "sl_museum":
+                        return "Entry to the SL Museums is free to the public. On the first Saturdays of the month, come to free film showings throughout the day. During the week, the San Leandro Museum hosts a Living History Tour to youths in 3rd and 4th Grades to supplement their California History curriculum. The Museum is also open during the week on Wednesdays with its LEGO activities.";
+                        break;
+                case "tutor"
+                        return "Although many tutors work with students at the library, the library is not affiliated with professional tutors.";
                         break;
 
                 default:
