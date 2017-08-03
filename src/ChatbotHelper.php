@@ -166,12 +166,12 @@ class ChatbotHelper
                         break;
                 case "story_time":
                         file_put_contents("php://stderr", "<<<story_time>>>");    
-                        $this->send($this->getSenderId(),"Ages 0- 12 months: Baby Time (English) Tuesdays at 9:30 AM. Babies Pre-walkers ages 0 to 12 months and caregivers bond during this short session with books, songs, and plays.";
-                        $this->send($this->getSenderId(),"Cuentacuentos: Canciones y cuentos para ninos pequenos/ Martes 10:30 AM Main Library.";
-                        $this->send($this->getSenderId()," Disfruta libros, cuentos, y canciones en Espanol en la biblioteca con tus ninos pequenos. Main Library";
-                        $this->send($this->getSenderId(),"Toddler Story time:  Wednesday 9:30 AM and 10:30 AM. Stories, rhymes, and romps for ages 1-3. Just the right pace for you and your totally nonstop toddler up to age 3.";
-                        $this->send($this->getSenderId()," Preschool Story time: Stories, songs, and play for preschoolers. Wednesdays at 1:30 PM. Main Library Pattycakes Story Time: Thursdays at 10:30 AM. For children ages 2-5. All children must be accompanied by an adult. (Manor Library)";
-                            
+                        $this->send($this->getSenderId(),"Ages 0- 12 months: Baby Time (English) Tuesdays at 9:30 AM. Babies Pre-walkers ages 0 to 12 months and caregivers bond during this short session with books, songs, and plays.");
+                        $this->send($this->getSenderId(),"Cuentacuentos: Canciones y cuentos para ninos pequenos/ Martes 10:30 AM Main Library.");
+                        $this->send($this->getSenderId()," Disfruta libros, cuentos, y canciones en Espanol en la biblioteca con tus ninos pequenos. Main Library");
+                        $this->send($this->getSenderId(),"Toddler Story time:  Wednesday 9:30 AM and 10:30 AM. Stories, rhymes, and romps for ages 1-3. Just the right pace for you and your totally nonstop toddler up to age 3.");
+                        $this->send($this->getSenderId()," Preschool Story time: Stories, songs, and play for preschoolers. Wednesdays at 1:30 PM. Main Library Pattycakes Story Time: Thursdays at 10:30 AM. For children ages 2-5. All children must be accompanied by an adult. (Manor Library)");
+
                         return ;
                         break;
                     case "family_story":
