@@ -324,7 +324,9 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 {
                     break;
                 }
-                $respuesta []= new MessageElement($ev2["name"],"[".$ev2["date"]."]".$ev2["description"], "", [
+                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false'); 
+                $resimg=$response2->getDecodedBody();
+                $respuesta []= new MessageElement($ev2["name"],"[".$ev2["date"]."]".$ev2["description"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_POSTBACK, 'View')                                         
                             ]);
                 $noev=$noev + 1;
