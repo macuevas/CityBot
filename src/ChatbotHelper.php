@@ -304,7 +304,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
         ]);
         try {
             file_put_contents("php://stderr", "Request"); 
-            $response = $fb->get('/116264538402761/events');            
+            $response = $fb->get('/116264538402761/events?time_filter=upcoming');            
             $resev=$response->getDecodedBody();
             file_put_contents("php://stderr", print_r($resev["data"],true)); 
             foreach ($resev["data"] as &$ev) {
