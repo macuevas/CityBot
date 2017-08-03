@@ -363,7 +363,7 @@ class ChatbotHelper
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
-            $this->send($this->getSenderId(),"I Find de next events:");
+            $this->send($this->getSenderId(),"I found theses events:");
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_GENERIC,
                     [
