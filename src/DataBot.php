@@ -76,5 +76,32 @@ class DataBot
 		}
 			
 	}		
+
+	public function GetPagesId()
+	{		
+		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
+		if ($myConn2->connect_errno) {
+		}
+		file_put_contents("php://stderr", "GetPagesId\n" . $Place );
+		$sql = "SELECT fb_id FROM places_events";
+		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
+		if ($res1 = $myConn2->query($sql)) {
+			if ($res1->num_rows === 0) {
+			    // ¡Oh, no ha filas! Unas veces es lo previsto, pero otras
+			    // no. Nosotros decidimos. En este caso, ¿podría haber sido
+			    // actor_id demasiado grande? 
+			    return;
+			}else{
+				while ($fila = $res1->fetch_assoc()) {
+					$pages[]=$fila["fb_id"];
+				}
+				$res1->free();
+				return $pages;
+			}
+		}else{
+			return ; 
+		}
+			
+	}		
 }
 
