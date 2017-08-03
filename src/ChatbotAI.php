@@ -133,7 +133,7 @@ class ChatbotAI
     {        
         try {
             
-            $Fecha = $this->LastResponse['entities']['datatime'][0]['value'] ?? date("Y-m-dTH:i:sa");
+            $Fecha = $this->LastResponse['entities']['datetime'][0]['value'] ?? date("Y-m-dTH:i:sa");
         } catch (\Exception $error) {
             $this->log->warning($error->getMessage());
         }
