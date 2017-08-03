@@ -323,7 +323,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
             
             $noev=1;
 
-            $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime($element["date"]));})
+            $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime($element["date"]));});
             
             usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
