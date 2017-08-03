@@ -119,19 +119,22 @@ if ($senderId && $chatbotHelper->isMessage())
                 ));                   
             break;
             case 'CMD_PLACES':
-               /* $chatbotHelper->send($senderId,"Menu Places"); 
-                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/03_places.png");*/
+                #$chatbotHelper->send($senderId,"Menu Places"); 
+                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/03_places.png");
+                
+            break;
+            case 'CMD_EVENTS':
                 $fecha = strtotime($chatbotHelper->chatbotAI->getDatetime());
                 file_put_contents("php://stderr", "Events=".$fecha);    
 
                 $chatbotHelper->GetEvents($fecha);
-            break;
-            case 'CMD_EVENTS':
+                /*
                 $chatbotHelper->send($senderId,"Menu Events"); 
                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/04_events.png");
+                */
             break;
             case 'CMD_ACTIVITIES':
-                $chatbotHelper->send($senderId,"Menu Activities"); 
+                #$chatbotHelper->send($senderId,"Menu Activities"); 
                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/05_activities.png");
             break;
 
