@@ -68,7 +68,7 @@ if ($senderId && $chatbotHelper->isMessage())
             case "events":
                 break;
             default:
-                return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";
+                return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where's the library?\"";  
                 break;
          }
     }else{

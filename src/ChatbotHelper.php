@@ -203,7 +203,7 @@ class ChatbotHelper
                     {
                         return $resData;
                     }else{*/
-                        return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";                    
+                        return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where's the library?\"";                    
                     #}
                     break;
             }
