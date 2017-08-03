@@ -327,7 +327,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=normal'); 
                 $resimg=$response2->getDecodedBody();
                 $fecha = $ev2["date"];
-                $fecha = str_replac("T"," ",$fecha);
+                $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
                 $respuesta []= new MessageElement($ev2["name"],"[".$fecha."]".$ev2["description"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_POSTBACK, 'View')                                         
