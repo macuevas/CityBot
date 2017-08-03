@@ -129,6 +129,18 @@ class ChatbotAI
         return $Localsq;
     }
 
+    public function getDatetime()
+    {        
+        try {
+            
+            $Fecha = $this->LastResponse['entities']['datatime'][0]['value'] ?? date("Y-m-dTH:i:sa");
+        } catch (\Exception $error) {
+            $this->log->warning($error->getMessage());
+        }
+
+        return $Fecha;
+    }
+
     /**
      * Get the foreign rates based on the users base (EUR, USD...)
      * @param $message

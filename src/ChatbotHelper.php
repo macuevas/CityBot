@@ -149,7 +149,8 @@ class ChatbotHelper
                         return $resData;
                     break;
                 case "events":
-                        $this->GetEvents();
+                        $fecha = strtotime($this->chatbotAI->getLocalsearchquery());
+                        $this->GetEvents($fecha);
                         return "";
                         break;
                 case "Manuel":
@@ -293,9 +294,8 @@ Stories, songs, and play for families. Our evening program offers terrific books
         return "My Name is CityBot" ;
     }
 
-    public function GetEvents(){
-        file_put_contents("php://stderr", "GetEvents"); 
-
+    public function GetEvents($fechaev){
+        file_put_contents("php://stderr", "GetEvents");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
           'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
@@ -330,16 +330,19 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 {
                     break;
                 }
-                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
-                $resimg=$response2->getDecodedBody();
-                $fecha = $ev2["date"];
-                $fecha = str_replace("T"," ",$fecha);
-                $fecha = substr ($fecha,0,16);
-                #https://www.facebook.com/events/1082000648599128
-                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
-                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
-                            ]);
-                $noev=$noev + 1;
+                if ($fechaev<=strtotime($ev2["date"]))
+                {
+                    $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
+                    $resimg=$response2->getDecodedBody();
+                    $fecha = $ev2["date"];
+                    $fecha = str_replace("T"," ",$fecha);
+                    $fecha = substr ($fecha,0,16);
+                    #https://www.facebook.com/events/1082000648599128
+                    $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
+                                                new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
+                                ]);
+                    $noev=$noev + 1;
+                }
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
