@@ -356,6 +356,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
     }
 
    static  function sortFunction( $a, $b ) {
+        file_put_contents("php://stderr", "sortFunction: ".(strtotime($a["date"])-strtotime($b["date"])));
         return  strtotime($a["date"])-strtotime($b["date"]);
     }
 }
