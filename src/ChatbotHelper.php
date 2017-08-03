@@ -121,7 +121,7 @@ class ChatbotHelper
             return $this->chatbotAI->getApiAIAnswer($message);
         } elseif ($api === 'witai') {
             $key= $this->chatbotAI->getWitAIAnswer($message);
-            file_put_contents("php://stderr", "KEY=".$key);  
+            file_put_contents("php://stderr", "KEY=".$key."\n");  
             switch ($key) {
                 case 'hello':
                         $this->SayHello();
@@ -151,6 +151,7 @@ class ChatbotHelper
                 case "events":
                         $fecha = strtotime($this->chatbotAI->getLocalsearchquery());
                         file_put_contents("php://stderr", "Events=".$fecha);    
+
                         $this->GetEvents($fecha);
                         return "";
                         break;
