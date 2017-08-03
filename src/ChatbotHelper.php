@@ -167,7 +167,7 @@ class ChatbotHelper
                 case "story_time":
                         file_put_contents("php://stderr", "<<<story_time>>>");    
                         $this->send($this->getSenderId(),"Ages 0- 12 months: Baby Time (English) Tuesdays at 9:30 AM. Babies Pre-walkers ages 0 to 12 months and caregivers bond during this short session with books, songs, and plays.");
-                        $this->send($this->getSenderId(),"Cuentacuentos: Canciones y cuentos para ninos pequenos/ Martes 10:30 AM Main Library.");
+                        $this->send($this->getSenderId(),"Cuentacuentos: Canciones y cuentos para ninos pequenos Martes 10:30 AM Main Library.");
                         $this->send($this->getSenderId()," Disfruta libros, cuentos, y canciones en Espanol en la biblioteca con tus ninos pequenos. Main Library");
                         $this->send($this->getSenderId(),"Toddler Story time:  Wednesday 9:30 AM and 10:30 AM. Stories, rhymes, and romps for ages 1-3. Just the right pace for you and your totally nonstop toddler up to age 3.");
                         $this->send($this->getSenderId()," Preschool Story time: Stories, songs, and play for preschoolers. Wednesdays at 1:30 PM. Main Library Pattycakes Story Time: Thursdays at 10:30 AM. For children ages 2-5. All children must be accompanied by an adult. (Manor Library)");
@@ -175,7 +175,9 @@ class ChatbotHelper
                         return ;
                         break;
                     case "family_story":
-                        return "Family Story time: Wednesday 7:00 PM \n Stories, songs, and play for families. Our evening program offers terrific books, songs and rhymes for kids of all ages to enjoy. Wear your pajamas! Main Library. ";
+                        $this->send($this->getSenderId(),"Family Story time: Wednesday 7:00 PM");
+                        $this->send($this->getSenderId(),"Stories, songs, and play for families. Our evening program offers terrific books, songs and rhymes for kids of all ages to enjoy. Wear your pajamas! Main Library.");
+                        return ;
                         break;
                 case "lawyers":
                         return "Lawyers in the Library takes place on the Third Thursday of the Month- therefore: Thursday, July 20. Thursday, August 17, September 21, October 19, November 16, and December 21. Sign ups begin at 5:30 PM. The Volunteer Lawyers give 15 minute consultations from 6:00 PM – 8:00 PM.";
