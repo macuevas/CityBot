@@ -318,23 +318,23 @@ Stories, songs, and play for families. Our evening program offers terrific books
             $noev=1;
 
             usort($eventos, array("ChatbotHelper","sortFunction"));
-
+            file_put_contents("php://stderr", print_r($eventos,true));
             foreach ($eventos as &$ev2) {
                 if ($noev>=10)
                 {
                     break;
                 }
-                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=normal'); 
+                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
                 $resimg=$response2->getDecodedBody();
                 $fecha = $ev2["date"];
                 $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
-                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."]".$ev2["description"], $resimg["data"]["url"], [
+                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_POSTBACK, 'View')                                         
                             ]);
                 $noev=$noev + 1;
             }
-            file_put_contents("php://stderr", print_r($respuesta,true));
+            
             #$chatbotHelper->send($senderId,"Great!!!");
             $this->send($this->getSenderId(),"I Find de next events:");
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
