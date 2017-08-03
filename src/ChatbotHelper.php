@@ -322,7 +322,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 }
                 $respuesta []= new MessageElement($ev2["name"], $ev2["description"], "", [
                                             #new MessageButton(MessageButton::TYPE_POSTBACK, 'First button')                                         
-                            ]),
+                            ]);
                 $noev=$noev + 1;
             }
             #$chatbotHelper->send($senderId,"Great!!!");
