@@ -322,6 +322,8 @@ Stories, songs, and play for families. Our evening program offers terrific books
             }
             
             $noev=1;
+
+            $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime($element["date"]));})
             
             usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
@@ -329,20 +331,17 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 if ($noev>=10)
                 {
                     break;
-                }
-                if ($fechaev<=strtotime($ev2["date"]))
-                {
-                    $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
-                    $resimg=$response2->getDecodedBody();
-                    $fecha = $ev2["date"];
-                    $fecha = str_replace("T"," ",$fecha);
-                    $fecha = substr ($fecha,0,16);
-                    #https://www.facebook.com/events/1082000648599128
-                    $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
-                                                new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
-                                ]);
-                    $noev=$noev + 1;
-                }
+                }                
+                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
+                $resimg=$response2->getDecodedBody();
+                $fecha = $ev2["date"];
+                $fecha = str_replace("T"," ",$fecha);
+                $fecha = substr ($fecha,0,16);
+                #https://www.facebook.com/events/1082000648599128
+                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
+                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
+                            ]);
+                $noev=$noev + 1;
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
