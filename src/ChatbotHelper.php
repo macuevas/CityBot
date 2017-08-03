@@ -303,10 +303,10 @@ Stories, songs, and play for families. Our evening program offers terrific books
         ]);
         try {
             file_put_contents("php://stderr", "Request"); 
-            $response = $fb->get('/116264538402761/events');
-            file_put_contents("php://stderr", print_r($response->getDecodedBody(),true)); 
+            $response = $fb->get('/116264538402761/events');            
             $resev=$response->getDecodedBody();
-            foreach ($resev as &$ev) {
+            file_put_contents("php://stderr", print_r($resev["data"],true)); 
+            foreach ($resev["data"] as &$ev) {
                 $tmp["id"]=$ev["id"];
                 $tmp["description"]=$ev["description"];
                 $tmp["name"]=$ev["name"];
