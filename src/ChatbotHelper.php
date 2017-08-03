@@ -185,7 +185,7 @@ class ChatbotHelper
                 case "sl_museum":
                         return "Entry to the SL Museums is free to the public. On the first Saturdays of the month, come to free film showings throughout the day. During the week, the San Leandro Museum hosts a Living History Tour to youths in 3rd and 4th Grades to supplement their California History curriculum. The Museum is also open during the week on Wednesdays with its LEGO activities.";
                         break;
-                case "tutor"
+                case "tutor":
                         return "Although many tutors work with students at the library, the library is not affiliated with professional tutors.";
                         break;
 
