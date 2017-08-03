@@ -184,14 +184,14 @@ class ChatbotHelper
                         break;
 
                 default:
-                    $Data2 = new Databot();
+                   /* $Data2 = new Databot();
                     $resData = $Data2->GetLocation($message);
                     if ($resData != "")
                     {
                         return $resData;
-                    }else{
+                    }else{*/
                         return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\"";                    
-                    }
+                    #}
                     break;
             }
         } elseif ($api === 'rates') {
