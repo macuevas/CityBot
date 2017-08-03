@@ -316,13 +316,16 @@ Stories, songs, and play for families. Our evening program offers terrific books
             }
             
             $noev=1;
+
+            usort($eventos, array("ChatbotHelper","sortFunction"));
+
             foreach ($eventos as &$ev2) {
                 if ($noev>=10)
                 {
                     break;
                 }
-                $respuesta []= new MessageElement($ev2["name"], $ev2["description"], "", [
-                                            #new MessageButton(MessageButton::TYPE_POSTBACK, 'First button')                                         
+                $respuesta []= new MessageElement($ev2["name"],"[".$ev2["date"]."]".$ev2["description"], "", [
+                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'View')                                         
                             ]);
                 $noev=$noev + 1;
             }
@@ -344,5 +347,9 @@ Stories, songs, and play for families. Our evening program offers terrific books
           exit;
         }    
         return $response;
+    }
+
+   static  function sortFunction( $a, $b ) {
+        return strtotime($a["date"]) - strtotime($b["date"]);
     }
 }
