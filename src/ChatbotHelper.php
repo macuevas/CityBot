@@ -150,7 +150,7 @@ class ChatbotHelper
                     break;
                 case "events":
                         $this->GetEvents();
-                        return "There is no events yet!";
+                        return "";
                         break;
                 case "Manuel":
                         return "Manuel is the best programmer in history for ever, and very handsome too. He  developed me. ;) (y)";
@@ -330,8 +330,9 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 $fecha = $ev2["date"];
                 $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
+                #https://www.facebook.com/events/1082000648599128
                 $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
-                                            new MessageButton(MessageButton::TYPE_POSTBACK, 'View')                                         
+                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"])                                         
                             ]);
                 $noev=$noev + 1;
             }
