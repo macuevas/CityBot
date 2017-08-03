@@ -328,7 +328,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
             }
             file_put_contents("php://stderr", print_r($respuesta,true));
             #$chatbotHelper->send($senderId,"Great!!!");
-            $this->send($this->getSenderId(),,"I Find de next events:");
+            $this->send($this->getSenderId(),"I Find de next events:");
             $this->sendMsj(new StructuredMessage($this->getSenderId(),,
                     StructuredMessage::TYPE_GENERIC,
                     [
