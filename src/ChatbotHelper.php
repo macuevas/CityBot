@@ -150,6 +150,7 @@ class ChatbotHelper
                     break;
                 case "events":
                         $fecha = strtotime($this->chatbotAI->getLocalsearchquery());
+                        file_put_contents("php://stderr", "Events=".$fecha);    
                         $this->GetEvents($fecha);
                         return "";
                         break;
