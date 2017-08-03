@@ -331,7 +331,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
                 $fecha = substr ($fecha,0,16);
                 #https://www.facebook.com/events/1082000648599128
                 $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
-                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],compact)                                         
+                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
                             ]);
                 $noev=$noev + 1;
             }
