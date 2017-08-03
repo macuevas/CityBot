@@ -294,6 +294,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
 
     public function GetEvents(){
         file_put_contents("php://stderr", "GetEvents"); 
+
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
           'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
@@ -304,6 +305,16 @@ Stories, songs, and play for families. Our evening program offers terrific books
             file_put_contents("php://stderr", "Request"); 
             $response = $fb->get('/116264538402761/events');
             file_put_contents("php://stderr", print_r($response->getDecodedBody(),true)); 
+            $resev=$response->getDecodedBody();
+            foreach ($resev as &$ev) {
+                $tmp["id"]=$ev["id"];
+                $tmp["description"]=$ev["description"];
+                $tmp["name"]=$ev["name"];
+                $tmp["date"]=$ev["start_time"];
+                $eventos[]=$tmp;
+            }
+            file_put_contents("php://stderr", print_r($eventos,true)); 
+
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
           exit;
