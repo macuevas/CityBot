@@ -188,7 +188,14 @@ class ChatbotHelper
                 case "tutor":
                         return "Although many tutors work with students at the library, the library is not affiliated with professional tutors.";
                         break;
+                case "volunteering":
+                        return "https://www.sanleandro.org/depts/library/teens/volunteer/default.asp";
 
+                        break;
+                case "audiobooks":
+                        return "https://sanleandrolibrary.overdrive.com/";
+
+                        break;
                 default:
                    /* $Data2 = new Databot();
                     $resData = $Data2->GetLocation($message);
