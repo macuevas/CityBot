@@ -318,7 +318,7 @@ Stories, songs, and play for families. Our evening program offers terrific books
             $noev=1;
 
             file_put_contents("php://stderr", print_r($eventos,true));
-            usort($eventos, array("ChatbotHelper","sortFunction"));
+            usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
             file_put_contents("php://stderr", print_r($eventos,true));
             foreach ($eventos as &$ev2) {
                 if ($noev>=10)
