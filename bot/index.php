@@ -138,7 +138,8 @@ if ($senderId && $chatbotHelper->isMessage())
             break;
             case 'CMD_ACTIVITIES':
                 #$chatbotHelper->send($senderId,"Menu Activities"); 
-                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/05_activities.png");
+                #$chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/05_activities.png");
+                $chatbotHelper->GetActivities();
             break;
 
     }
