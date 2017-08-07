@@ -74,8 +74,7 @@ if ($senderId && $chatbotHelper->isMessage())
     }elseif($message="places"){
         $chatbotHelper->GetPlaces();
     }else{
-        $replyMessage = $chatbotHelper->getAnswer($message,"witai");
-    }
+        $replyMessage = $chatbotHelper->getAnswer($message,"witai");    
     }
 
     // Example 2: Get foreign exchange rates
