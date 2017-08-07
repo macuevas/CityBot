@@ -399,7 +399,7 @@ class ChatbotHelper
                 $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
                 file_put_contents("php://stderr", '/'.$page["fb_id"].'/picture?redirect=false&type=large');          
                 $resev=$response->getDecodedBody();
-             #   file_put_contents("php://stderr", print_r($resev["data"],true)); 
+                file_put_contents("php://stderr", print_r($resev["data"],true)); 
                 foreach ($resev["data"] as &$ev) {
                     $tmp["id"]=$page["id"];                    
                     $tmp["name"]=$page["name"];
@@ -422,7 +422,7 @@ class ChatbotHelper
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
-            $this->send($this->getSenderId(),"I found theses events:");
+            $this->send($this->getSenderId(),"I found theses Places:");
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_GENERIC,
                     [
