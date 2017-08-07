@@ -128,6 +128,8 @@ if ($senderId && $chatbotHelper->isMessage())
                 file_put_contents("php://stderr", "Events=".$fecha);    
 
                 $chatbotHelper->GetEvents($fecha);
+
+                
                 /*
                 $chatbotHelper->send($senderId,"Menu Events"); 
                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/04_events.png");
