@@ -399,7 +399,7 @@ class ChatbotHelper
                 $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
                 file_put_contents("php://stderr", '/'.$page["fb_id"].'/picture?redirect=false&type=large');          
                 $resev=$response->getDecodedBody();
-                file_put_contents("php://stderr", print_r($resev["data"],true));                 
+                file_put_contents("php://stderr", print_r($page,true));                 
                 $tmp["id"]=$page["id"];                    
                 $tmp["name"]=$page["name"];
                 $tmp["fb_id"]=$page["fb_id"];
