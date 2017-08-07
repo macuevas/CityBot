@@ -414,7 +414,7 @@ class ChatbotHelper
                 {
                     break;
                 }            
-                file_put_contents("php://stderr", .$pag["name"].$pag["url"].$pag["fb_id"]);                            
+                file_put_contents("php://stderr", $pag["name"].$pag["url"].$pag["fb_id"]);                            
                 $respuesta []= new MessageElement($pag["name"],"", $pag["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$pag["fb_id"],"compact")                                         
                             ]);
