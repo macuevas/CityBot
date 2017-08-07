@@ -120,7 +120,8 @@ if ($senderId && $chatbotHelper->isMessage())
             break;
             case 'CMD_PLACES':
                 #$chatbotHelper->send($senderId,"Menu Places"); 
-                $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/03_places.png");
+                #$chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/03_places.png");
+                $chatbotHelper->GetPlaces();
                 
             break;
             case 'CMD_EVENTS':
@@ -129,7 +130,7 @@ if ($senderId && $chatbotHelper->isMessage())
 
                 $chatbotHelper->GetEvents($fecha);
 
-                
+
                 /*
                 $chatbotHelper->send($senderId,"Menu Events"); 
                 $chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/04_events.png");
