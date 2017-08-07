@@ -401,7 +401,7 @@ class ChatbotHelper
                 $resev=$response->getDecodedBody();
                 file_put_contents("php://stderr", print_r($page,true));                 
                 $tmp["id"]=$page["id"];                    
-                $tmp["name"]=$page["name"];
+                $tmp["name"]=$page["Nombre"];
                 $tmp["fb_id"]=$page["fb_id"];
                 $tmp["url"]=$resev["data"]["url"];
                 $paginas[]=$tmp;                
