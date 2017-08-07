@@ -500,7 +500,7 @@ class ChatbotHelper
                         'elements' => $respuesta
                     ]                                
             ));      
-            return;            
+            return true;            
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
