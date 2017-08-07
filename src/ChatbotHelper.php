@@ -22,7 +22,7 @@ class ChatbotHelper
 {    
 
     public $config;
-    protected $chatbotAI;
+    public $chatbotAI;
     protected $facebookSend;
     protected $log;
     private $input;
