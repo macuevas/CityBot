@@ -381,6 +381,67 @@ class ChatbotHelper
         return $response;
     }
 
+    public function GetActivities()
+    {
+        GetActivities
+        file_put_contents("php://stderr", "GetPlaces");         
+        $fb = new \Facebook\Facebook([
+          'app_id' => '1347080372047215',
+          'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
+          'default_graph_version' => 'v2.10',
+          'default_access_token' => '1347080372047215|q-RxSd7MDCZtXP_UOvcP5Bk5Lqw', // optional
+        ]);
+        try {
+            file_put_contents("php://stderr", "Request"); 
+            $Data = new Databot();
+            $Activities = $Data->GetActivities();
+            foreach ($Activities as &$act)
+            {
+                $response = $fb->get('/'.$act["fb_id"].'/picture?redirect=false&type=large');  
+                file_put_contents("php://stderr", '/'.$act["fb_id"].'/picture?redirect=false&type=large');          
+                $resev=$response->getDecodedBody();
+                file_put_contents("php://stderr", print_r($act,true));                 
+                $tmp["id"]=$act["iactd"];                    
+                $tmp["name"]=$act["title"];
+                $tmp["desc"]=$act["descripcion"];
+                $tmp["fb_id"]=$act["fb_id"];
+                $tmp["url"]=$resev["data"]["url"];
+                $actividades[]=$tmp;                
+            }
+            
+            $noev=1;
+            
+            foreach ($actividades as &$act2) {
+                if ($noev>=10)
+                {
+                    break;
+                }            
+                file_put_contents("php://stderr", $act2["name"]."\n".$act2["url"]."\n".$act2["fb_id"]);                            
+                $respuesta []= new MessageElement($act2["name"],"", $act2["url"], [
+                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$act2["fb_id"],"compact")                                         
+                            ]);
+                $noev=$noev + 1;
+            }
+            
+            #$chatbotHelper->send($senderId,"Great!!!");
+            $this->send($this->getSenderId(),"I found theses Activities:");
+            $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                    StructuredMessage::TYPE_GENERIC,
+                    [
+                        'elements' => $respuesta
+                    ]                                
+            ));                  
+
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+          file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
+          exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+          file_put_contents("php://stderr", 'Facebook SDK returned an error: ' . $e->getMessage());
+          exit;
+        }    
+        return $response;
+    }
+
 
      public function GetPlaces(){
         file_put_contents("php://stderr", "GetPlaces");         

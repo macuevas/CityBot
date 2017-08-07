@@ -101,6 +101,30 @@ class DataBot
 			
 	}	
 
+	public function GetActivities()
+	{		
+		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
+		if ($myConn2->connect_errno) {
+		}
+		file_put_contents("php://stderr", "activities\n" . $Place );
+		$sql = "SELECT * FROM activities";
+		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
+		if ($res1 = $myConn2->query($sql)) {
+			if ($res1->num_rows === 0) {
+					return ;
+			}else{
+				while ($fila = $res1->fetch_assoc()) {
+					$pages[]=$fila;
+				}
+				$res1->free();
+				return $pages;
+			}
+		}else{
+			return ; 
+		}
+			
+	}	
+
 	public function GetPagesId()
 	{		
 		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
