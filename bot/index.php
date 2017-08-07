@@ -71,8 +71,11 @@ if ($senderId && $chatbotHelper->isMessage())
                 return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where is the library?\"";  
                 break;
          }
+    }elseif($message="places"){
+        $chatbotHelper->GetPlaces();
     }else{
         $replyMessage = $chatbotHelper->getAnswer($message,"witai");
+    }
     }
 
     // Example 2: Get foreign exchange rates
