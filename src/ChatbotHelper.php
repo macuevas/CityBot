@@ -203,7 +203,10 @@ class ChatbotHelper
                     {
                         return $resData;
                     }else{*/
-                        return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where's the library?\"";                    
+                    if (!$this->GetPlaces($message))
+                    {
+                        return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where is the library?\"";                    
+                    }
                     #}
                     break;
             }
@@ -443,7 +446,7 @@ class ChatbotHelper
     }
 
 
-     public function GetPlaces(){
+     public function GetPlaces($busqueda = "%"){
         file_put_contents("php://stderr", "GetPlaces");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
@@ -454,7 +457,7 @@ class ChatbotHelper
         try {
             file_put_contents("php://stderr", "Request"); 
             $Data = new Databot();
-            $Pages = $Data->GetPlaces();
+            $Pages = $Data->GetPlaces($busqueda);
             foreach ($Pages as &$page)
             {
                 $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
@@ -496,7 +499,8 @@ class ChatbotHelper
                     [
                         'elements' => $respuesta
                     ]                                
-            ));                  
+            ));      
+            return;            
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
@@ -505,7 +509,7 @@ class ChatbotHelper
           file_put_contents("php://stderr", 'Facebook SDK returned an error: ' . $e->getMessage());
           exit;
         }    
-        return $response;
+        return true;
     }
 
    static  function sortFunction( $a, $b ) {

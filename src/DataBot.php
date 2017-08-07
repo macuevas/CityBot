@@ -77,13 +77,15 @@ class DataBot
 			
 	}	
 
-	public function GetPlaces()
+	public function GetPlaces($busqueda = "%")
 	{		
 		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
+		$Place = "%".str_replace(" ","%",$busqueda)."%";
+		$Place = str_replace("%%","%",$Place);
 		if ($myConn2->connect_errno) {
 		}
 		file_put_contents("php://stderr", "places_events\n" . $Place );
-		$sql = "SELECT * FROM places_events";
+		$sql = "SELECT * FROM places_events WHERE nombre LIKE = '".$Place."'";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
 			if ($res1->num_rows === 0) {
