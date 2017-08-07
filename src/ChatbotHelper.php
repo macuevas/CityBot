@@ -399,13 +399,11 @@ class ChatbotHelper
                 $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
                 file_put_contents("php://stderr", '/'.$page["fb_id"].'/picture?redirect=false&type=large');          
                 $resev=$response->getDecodedBody();
-                file_put_contents("php://stderr", print_r($resev["data"],true)); 
-                foreach ($resev["data"] as &$ev) {
-                    $tmp["id"]=$page["id"];                    
-                    $tmp["name"]=$page["name"];
-                    $tmp["url"]=$ev["data"]["url"];
-                    $paginas[]=$tmp;
-                }
+                file_put_contents("php://stderr", print_r($resev["data"],true));                 
+                $tmp["id"]=$page["id"];                    
+                $tmp["name"]=$page["name"];
+                $tmp["url"]=$resev["data"]["url"];
+                $paginas[]=$tmp;                
             }
             
             $noev=1;
