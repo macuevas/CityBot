@@ -493,14 +493,20 @@ class ChatbotHelper
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
-            $this->send($this->getSenderId(),"I found theses Places:");
-            $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                    StructuredMessage::TYPE_GENERIC,
-                    [
-                        'elements' => $respuesta
-                    ]                                
-            ));      
-            return true;            
+            if (count($paginas)>0)
+            {
+                $this->send($this->getSenderId(),"I found theses Places:");
+                $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                        StructuredMessage::TYPE_GENERIC,
+                        [
+                            'elements' => $respuesta
+                        ]                                
+                ));      
+                return true;    
+            }else{
+                return false;
+            }            
+            
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
@@ -509,7 +515,7 @@ class ChatbotHelper
           file_put_contents("php://stderr", 'Facebook SDK returned an error: ' . $e->getMessage());
           exit;
         }    
-        return true;
+        return false;
     }
 
    static  function sortFunction( $a, $b ) {
