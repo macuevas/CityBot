@@ -383,8 +383,8 @@ class ChatbotHelper
 
     public function GetActivities()
     {
-        GetActivities
-        file_put_contents("php://stderr", "GetPlaces");         
+        
+        file_put_contents("php://stderr", "GetActivities");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
           'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
