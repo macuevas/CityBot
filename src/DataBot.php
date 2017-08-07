@@ -75,7 +75,31 @@ class DataBot
 			return "Hmmm, I'm not sure I understand. Can you ask again? Try \"What's the weather like?\" or \"What time is it?\""; 
 		}
 			
-	}		
+	}	
+
+	public function GetPlaces()
+	{		
+		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
+		if ($myConn2->connect_errno) {
+		}
+		file_put_contents("php://stderr", "places_events\n" . $Place );
+		$sql = "SELECT * FROM places_events";
+		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
+		if ($res1 = $myConn2->query($sql)) {
+			if ($res1->num_rows === 0) {
+					return ;
+			}else{
+				while ($fila = $res1->fetch_assoc()) {
+					$pages[]=$fila;
+				}
+				$res1->free();
+				return $pages;
+			}
+		}else{
+			return ; 
+		}
+			
+	}	
 
 	public function GetPagesId()
 	{		

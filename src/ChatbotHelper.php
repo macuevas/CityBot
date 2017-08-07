@@ -381,6 +381,65 @@ class ChatbotHelper
         return $response;
     }
 
+
+     public function GetPlaces(){
+        file_put_contents("php://stderr", "GetEvents");         
+        $fb = new \Facebook\Facebook([
+          'app_id' => '1347080372047215',
+          'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
+          'default_graph_version' => 'v2.10',
+          'default_access_token' => '1347080372047215|q-RxSd7MDCZtXP_UOvcP5Bk5Lqw', // optional
+        ]);
+        try {
+            file_put_contents("php://stderr", "Request"); 
+            $Data = new Databot();
+            $Pages = $Data->GetPlaces();
+            foreach ($Pages as &$page)
+            {
+                $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
+                file_put_contents("php://stderr", '/'.$page["fb_id"].'/picture?redirect=false&type=large');          
+                $resev=$response->getDecodedBody();
+             #   file_put_contents("php://stderr", print_r($resev["data"],true)); 
+                foreach ($resev["data"] as &$ev) {
+                    $tmp["id"]=$page["id"];                    
+                    $tmp["name"]=$page["name"];
+                    $tmp["url"]=$ev["data"]["url"];
+                    $paginas[]=$tmp;
+                }
+            }
+            
+            $noev=1;
+            
+            foreach ($paginas as &$pag) {
+                if ($noev>=10)
+                {
+                    break;
+                }                              
+                $respuesta []= new MessageElement($pag["name"],, $pag["url"], [
+                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$pag["fb_id"],"compact")                                         
+                            ]);
+                $noev=$noev + 1;
+            }
+            
+            #$chatbotHelper->send($senderId,"Great!!!");
+            $this->send($this->getSenderId(),"I found theses events:");
+            $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                    StructuredMessage::TYPE_GENERIC,
+                    [
+                        'elements' => $respuesta
+                    ]                                
+            ));                  
+
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+          file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
+          exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+          file_put_contents("php://stderr", 'Facebook SDK returned an error: ' . $e->getMessage());
+          exit;
+        }    
+        return $response;
+    }
+
    static  function sortFunction( $a, $b ) {
         #file_put_contents("php://stderr", "sortFunction: ".(strtotime($a["date"])-strtotime($b["date"])));
         return  strtotime($a["date"])-strtotime($b["date"]);
