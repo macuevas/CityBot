@@ -71,8 +71,11 @@ if ($senderId && $chatbotHelper->isMessage())
                 return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where is the library?\"";  
                 break;
          }
-    }elseif($message="places"){
+    }elseif($message=="places"){
         $chatbotHelper->GetPlaces();
+    }elseif($message == "activities")
+    {  
+        $chatbotHelper->GetActivities();
     }else{
         $replyMessage = $chatbotHelper->getAnswer($message,"witai");    
     }
