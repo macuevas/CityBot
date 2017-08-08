@@ -453,13 +453,8 @@ class ChatbotHelper
           'app_secret' => '97d6f4ebe503098fb7cfb45577b7c1f9',
           'default_graph_version' => 'v2.10',
           'default_access_token' => '1347080372047215|q-RxSd7MDCZtXP_UOvcP5Bk5Lqw', // optional
-        ]);
+        ]);    
 
-        $oClass = new ReflectionClass ('MessageButton');
-                $consarr = $oClass->getConstants ();
-                file_put_contents("php://stderr", "Constantes:"); 
-                file_put_contents("php://stderr", print_r($consarr,true));
-                
         try {
             file_put_contents("php://stderr", "Request"); 
             $Data = new Databot();
