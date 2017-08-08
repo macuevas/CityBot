@@ -54,7 +54,7 @@ class DataBot
 		if ($myConn2->connect_errno) {
 		}
 		file_put_contents("php://stderr", "GetLocation\n" . $Place );
-		$sql = "SELECT dir,hours FROM Places WHERE name  like '". $Place . "'";
+		$sql = "SELECT dir,hours FROM Places WHERE name  like '". $Place . "' ";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
 			if ($res1->num_rows === 0) {
@@ -85,7 +85,7 @@ class DataBot
 		if ($myConn2->connect_errno) {
 		}
 		file_put_contents("php://stderr", "places_events\n" . $Place );
-		$sql = "SELECT * FROM places_events WHERE nombre LIKE  '".$Place."'";
+		$sql = "SELECT * FROM places_events WHERE nombre LIKE  '".$Place."' ORDER BY rand()";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
 			if ($res1->num_rows === 0) {
