@@ -463,7 +463,7 @@ class ChatbotHelper
                 $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
                 file_put_contents("php://stderr", '/'.$page["fb_id"].'/picture?redirect=false&type=large');          
                 $resev=$response->getDecodedBody();
-                file_put_contents("php://stderr", print_r($page,true));                 
+                //file_put_contents("php://stderr", print_r($page,true));                 
                 $tmp["id"]=$page["id"];                    
                 $tmp["name"]=$page["Nombre"];
                 $tmp["fb_id"]=$page["fb_id"];
@@ -494,8 +494,9 @@ class ChatbotHelper
             if (count($paginas)>0)
             {
                 $oClass = new ReflectionClass ('MessageButton');
-                $array = $oClass->getConstants ();
-                file_put_contents("php://stderr", print_r($array,true)); 
+                $consarr = $oClass->getConstants ();
+                file_put_contents("php://stderr", "Constantes:"); 
+                file_put_contents("php://stderr", print_r($consarr,true)); 
                 $this->send($this->getSenderId(),"I found theses Places:");
                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_GENERIC,
