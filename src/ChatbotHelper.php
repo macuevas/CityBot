@@ -486,7 +486,7 @@ class ChatbotHelper
                 {
                     $botones[] = new MessageButton("phone_number" , 'Call',$pag["tel"],"compact") ;
                 }
-                $respuesta []= new MessageElement(MessageButton::TYPE_CALL,"", $pag["url"], $botones);
+                $respuesta []= new MessageElement($pag["name"],"", $pag["url"], $botones);
                 $noev=$noev + 1;
             }
             
