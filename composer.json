@@ -16,7 +16,7 @@
     "monolog/monolog": "^1.22",
     "vlucas/phpdotenv": "^2.4",
     "tgallice/wit-php": "^0.3.1",
-    "pimax/fb-messenger-php": "^1.0",
+    "pimax/fb-messenger-php": "dev-master",
     "facebook/graph-sdk": "~5.0"
   },
   "require-dev": {
