@@ -486,9 +486,7 @@ class ChatbotHelper
                 {
                     $botones[] = new MessageButton("phone_number" , 'Call',$pag["tel"],"compact") ;
                 }
-                $respuesta []= new MessageElement(MessageButton::TYPE_CALL,"", $pag["url"], [
-                                 new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$pag["fb_id"],"compact")                                                  
-                            ]);
+                $respuesta []= new MessageElement(MessageButton::TYPE_CALL,"", $pag["url"], $botones);
                 $noev=$noev + 1;
             }
             
