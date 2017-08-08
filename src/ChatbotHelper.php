@@ -361,7 +361,7 @@ class ChatbotHelper
                 #https://www.facebook.com/events/1082000648599128
                 $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
-                            ]);
+                            ], "https://www.facebook.com/events/".$ev2["id"]);
                 $noev=$noev + 1;
             }
             
@@ -422,7 +422,7 @@ class ChatbotHelper
                 file_put_contents("php://stderr", $act2["name"]."\n".$act2["url"]."\n".$act2["fb_id"]);                            
                 $respuesta []= new MessageElement($act2["name"],$act2["desc"], $act2["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$act2["fb_id"],"compact")                                         
-                            ]);
+                            ],$act2["url"]);
                 $noev=$noev + 1;
             }
             
