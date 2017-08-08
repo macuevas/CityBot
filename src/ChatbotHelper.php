@@ -427,7 +427,7 @@ class ChatbotHelper
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
-            $this->send($this->getSenderId(),"I found theses Activities:");
+            $this->send($this->getSenderId(),"I found these Activities:");
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_GENERIC,
                     [
@@ -495,7 +495,7 @@ class ChatbotHelper
             #$chatbotHelper->send($senderId,"Great!!!");
             if (count($paginas)>0)
             {                 
-                $this->send($this->getSenderId(),"I found theses Places:");
+                $this->send($this->getSenderId(),"I found these Places:");
                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_GENERIC,
                         [
