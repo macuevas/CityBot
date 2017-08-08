@@ -484,7 +484,7 @@ class ChatbotHelper
                 $botones[] = new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$pag["fb_id"],"compact") ;
                 if ($pag["tel"]!="")
                 {
-                    $botones[] = new MessageButton("phone_number" , 'Call',$pag["tel"],"compact") ;
+                    $botones[] = new MessageButton(MessageButton::TYPE_CALL, 'Call',$pag["tel"],"compact") ;
                 }
                 $respuesta []= new MessageElement($pag["name"],"", $pag["url"], $botones);
                 $noev=$noev + 1;
@@ -493,6 +493,9 @@ class ChatbotHelper
             #$chatbotHelper->send($senderId,"Great!!!");
             if (count($paginas)>0)
             {
+                $oClass = new ReflectionClass ('MessageButton');
+                $array = $oClass->getConstants ();
+                file_put_contents("php://stderr", print_r($array,true)); 
                 $this->send($this->getSenderId(),"I found theses Places:");
                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_GENERIC,
