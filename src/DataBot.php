@@ -132,7 +132,9 @@ class DataBot
 		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
 		if ($myConn2->connect_errno) {
 		}
-		file_put_contents("php://stderr", "GetPagesId\n" . $Place );
+		$busqueda = "%".str_replace(" ","%",$busqueda)."%";
+		$busqueda = str_replace("%%","%",$busqueda);
+		file_put_contents("php://stderr", "GetPagesId\n" . $busqueda );
 		$sql = "SELECT fb_id FROM places_events WHERE nombre LIKE '".$busqueda."'";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
