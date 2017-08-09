@@ -127,13 +127,13 @@ class DataBot
 			
 	}	
 
-	public function GetPagesId()
+	public function GetPagesId($busqueda = "%")
 	{		
 		$myConn2 = new mysqli($this->server, $this->user, $this->pass, $this->database);
 		if ($myConn2->connect_errno) {
 		}
 		file_put_contents("php://stderr", "GetPagesId\n" . $Place );
-		$sql = "SELECT fb_id FROM places_events";
+		$sql = "SELECT fb_id FROM places_events WHERE nombre LIKE '".$busqueda."'";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
 			if ($res1->num_rows === 0) {

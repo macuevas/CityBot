@@ -326,7 +326,8 @@ class ChatbotHelper
         try {
             file_put_contents("php://stderr", "Request"); 
             $Data = new Databot();
-            $Pages = $Data->GetPagesId();
+            $bus = $this->chatbotAI->getLocalsearchquery();
+            $Pages = $Data->GetPagesId($bus);
             foreach ($Pages as &$page)
             {
                 $response = $fb->get('/'.$page.'/events?time_filter=upcoming');  
