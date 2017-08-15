@@ -126,7 +126,7 @@ if ($senderId && $chatbotHelper->isMessage())
             case 'CMD_PLACES':
                 #$chatbotHelper->send($senderId,"Menu Places"); 
                 #$chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/03_places.png");
-                $chatbotHelper->GetPlaces();
+                $chatbotHelper->GetPlaces("%");
                 
             break;
             case 'CMD_EVENTS':

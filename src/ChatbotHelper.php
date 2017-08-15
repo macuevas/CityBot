@@ -315,7 +315,7 @@ class ChatbotHelper
         return "My Name is CityBot" ;
     }
 
-    public function GetEvents($fechaev){
+    public function GetEvents($fechaev, $noquerie = false){
         file_put_contents("php://stderr", "GetEvents");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
@@ -326,7 +326,13 @@ class ChatbotHelper
         try {
             file_put_contents("php://stderr", "Request"); 
             $Data = new Databot();
-            $bus = $this->chatbotAI->getLocalsearchquery();
+            if (!$noquerie)
+            {
+                $bus = $this->chatbotAI->getLocalsearchquery();    
+            }else{
+                $bus = "%";
+            }
+            
             $Pages = $Data->GetPagesId($bus);
             foreach ($Pages as &$page)
             {
