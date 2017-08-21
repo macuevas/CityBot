@@ -127,8 +127,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
 
                 $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                   StructuredMessage::TYPE_BUTTON,
-                  [
-                      'text' => '',
+                  [                      
                       'buttons' => [
                           new MessageButton(MessageButton::TYPE_POSTBACK, "Yes, let's do this!","CMD_READY")
                       ]
