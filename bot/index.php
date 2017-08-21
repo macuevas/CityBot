@@ -159,7 +159,7 @@ if ($senderId && $chatbotHelper->isMessage())
             case 'CMD_READY':
                 $chatbotHelper->send($senderId,"What are you looking for today?"); 
                 $this->chatbotHelper->send(new StructuredMessage($this->getSenderId(),
-                     chatbotHelper StructuredMessage::TYPE_BUTTON,
+                      StructuredMessage::TYPE_BUTTON,
                       [
                           'text' => 'PLACES',
                           'buttons' => [
