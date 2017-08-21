@@ -114,11 +114,11 @@ if ($senderId && $chatbotHelper->isMessage())
                                 StructuredMessage::TYPE_GENERIC,
                                 [
                                     'elements' => [
-                                        new MessageElement("Menu", "Swipe up the Menu bar and you can tap
+                                        new MessageElement("1 - MENU", "Swipe up the Menu bar and you can tap
 on one of the three options.", "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png", [
                                             #new MessageButton(MessageButton::TYPE_POSTBACK, 'First button')                                         
                                         ]),
-                                        new MessageElement("Text", "Type a question on the text field, for a
+                                        new MessageElement("2 - TEXT", "Type a question on the text field, for a
 more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02_type.png", [
                                         ])
                                     ]
