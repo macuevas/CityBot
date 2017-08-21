@@ -109,7 +109,7 @@ if ($senderId && $chatbotHelper->isMessage())
             break;
             case 'CMD_OK':
                 $chatbotHelper->send($senderId,"Great!!!");
-                $chatbotHelper->send($senderId,"Here are a few tips on how to use me:");
+                $chatbotHelper->send($senderId,"Here’s how you can use me:");
                 $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                                 StructuredMessage::TYPE_GENERIC,
                                 [
@@ -121,7 +121,17 @@ if ($senderId && $chatbotHelper->isMessage())
                                         ])
                                     ]
                                 ]                                
-                ));                   
+                ));  
+
+                $chatbotHelper->sendMsj(new StructuredMessage($senderId,
+                  StructuredMessage::TYPE_BUTTON,
+                  [
+                      'text' => 'Are you ready ?',
+                      'buttons' => [
+                          new MessageButton(MessageButton::TYPE_POSTBACK, 'I'm ready, let's do this!',"CMD_READY")
+                      ]
+                  ]
+              ));                  
             break;
             case 'CMD_PLACES':
                 #$chatbotHelper->send($senderId,"Menu Places"); 
@@ -145,6 +155,9 @@ if ($senderId && $chatbotHelper->isMessage())
                 #$chatbotHelper->send($senderId,"Menu Activities"); 
                 #$chatbotHelper->sendImg($senderId, "https://blooming-spire-13615.herokuapp.com/resources/05_activities.png");
                 $chatbotHelper->GetActivities();
+            break;
+            case 'CMD_READY':
+                $chatbotHelper->send($senderId,"What are you looking for today?"); 
             break;
 
     }
