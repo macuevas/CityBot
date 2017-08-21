@@ -114,10 +114,12 @@ if ($senderId && $chatbotHelper->isMessage())
                                 StructuredMessage::TYPE_GENERIC,
                                 [
                                     'elements' => [
-                                        new MessageElement("Main Menu", "", "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png", [
+                                        new MessageElement("Menu", "Swipe up the Menu bar and you can tap
+on one of the three options.", "https://blooming-spire-13615.herokuapp.com/resources/01_menu.png", [
                                             #new MessageButton(MessageButton::TYPE_POSTBACK, 'First button')                                         
                                         ]),
-                                        new MessageElement("Ask Me Anything", "", "https://blooming-spire-13615.herokuapp.com/resources/02_type.png", [
+                                        new MessageElement("Text", "Type a question on the text field, for a
+more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02_type.png", [
                                         ])
                                     ]
                                 ]                                
@@ -126,7 +128,7 @@ if ($senderId && $chatbotHelper->isMessage())
                 $chatbotHelper->sendMsj(new StructuredMessage($senderId,
                   StructuredMessage::TYPE_BUTTON,
                   [
-                      'text' => 'Are you ready ?',
+                      'text' => '',
                       'buttons' => [
                           new MessageButton(MessageButton::TYPE_POSTBACK, "Yes, let's do this!","CMD_READY")
                       ]
