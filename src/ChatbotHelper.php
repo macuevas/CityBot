@@ -269,7 +269,7 @@ class ChatbotHelper
     {
         $UsrData=$this->facebookSend->userProfile($this->getSenderId());
         $this->send($this->getSenderId(), "Hi ".$UsrData->getFirstName()."!");
-          $this->send($this->getSenderId(), "I’m City Bot and I am here to show you all the cool Places, Activities and Events in San Leandro.");
+          $this->send($this->getSenderId(), "I’m CityBot and I am here to show you all the cool Places, Activities and Events in San Leandro.");
         //$this->send($this->getSenderId(), "Are you ready ?");
         $this->facebookSend->send(new StructuredMessage($this->getSenderId(),
           StructuredMessage::TYPE_BUTTON,
