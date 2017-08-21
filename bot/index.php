@@ -163,9 +163,9 @@ if ($senderId && $chatbotHelper->isMessage())
                       [
                           'text' => 'What are you looking for today?',
                           'buttons' => [
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'PLACES',"CMD_PLACES"),
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'EVENTS',"CMD_EVENTS"),
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'ACTIVITIES',"CMD_ACTIVITIES")
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Places',"CMD_PLACES"),
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Events',"CMD_EVENTS"),
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Activities',"CMD_ACTIVITIES")
                           ]
                       ]
                   )); 
