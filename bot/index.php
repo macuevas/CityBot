@@ -128,7 +128,7 @@ if ($senderId && $chatbotHelper->isMessage())
                   [
                       'text' => 'Are you ready ?',
                       'buttons' => [
-                          new MessageButton(MessageButton::TYPE_POSTBACK, "I'm ready, let's do this!","CMD_READY")
+                          new MessageButton(MessageButton::TYPE_POSTBACK, "Yes, let's do this!","CMD_READY")
                       ]
                   ]
               ));                  
