@@ -158,13 +158,14 @@ if ($senderId && $chatbotHelper->isMessage())
             break;
             case 'CMD_READY':
                 #$chatbotHelper->send($senderId,"What are you looking for today?"); 
-                $chatbotHelper->send(new StructuredMessage($this->getSenderId(),
+                $chatbotHelper->send($senderId, new StructuredMessage($this->getSenderId(),
                       StructuredMessage::TYPE_BUTTON,
                       [
                           'text' => 'What are you looking for today?',
                           'buttons' => [
                               new MessageButton(MessageButton::TYPE_POSTBACK, 'PLACES',"CMD_PLACES"),
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'EVENTS',"CMD_PLACES")                       
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'EVENTS',"CMD_EVENTS"),
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'ACTIVITIES',"CMD_ACTIVITIES")
                           ]
                       ]
                   )); 
