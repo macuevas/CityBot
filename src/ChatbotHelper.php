@@ -276,7 +276,7 @@ class ChatbotHelper
           [
               'text' => "I’m CityBot and I am here to show you all the cool Places, Activities and Events in San Leandro.",
               'buttons' => [
-                  new MessageButton(MessageButton::TYPE_POSTBACK, 'OK',"CMD_OK")
+                  new MessageButton(MessageButton::TYPE_POSTBACK, "Continue","CMD_OK")
               ]
           ]
       )); 
@@ -345,6 +345,7 @@ class ChatbotHelper
                     $tmp["id"]=$ev["id"];
                     $tmp["description"]=$ev["description"];
                     $tmp["name"]=$ev["name"];
+                    $tmp["lugar"]=$page["Nombre"];
                     $tmp["date"]=$ev["start_time"];
                     $eventos[]=$tmp;
                 }
@@ -367,7 +368,7 @@ class ChatbotHelper
                 $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
                 #https://www.facebook.com/events/1082000648599128
-                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["description"], $resimg["data"]["url"], [
+                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["lugar"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
                             ], "https://www.facebook.com/events/".$ev2["id"]);
                 $noev=$noev + 1;

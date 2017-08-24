@@ -135,7 +135,7 @@ class DataBot
 		$busqueda = "%".str_replace(" ","%",$busqueda)."%";
 		$busqueda = str_replace("%%","%",$busqueda);
 		file_put_contents("php://stderr", "GetPagesId\n" . $busqueda );
-		$sql = "SELECT fb_id FROM places_events WHERE nombre LIKE '".$busqueda."'";
+		$sql = "SELECT fb_id,nombre FROM places_events WHERE nombre LIKE '".$busqueda."'";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
 			if ($res1->num_rows === 0) {
