@@ -337,8 +337,8 @@ class ChatbotHelper
             $Pages = $Data->GetPagesId($bus);
             foreach ($Pages as &$page)
             {
-                $response = $fb->get('/'.$page.'/events?time_filter=upcoming');  
-                file_put_contents("php://stderr", '/'.$page.'/events?time_filter=upcoming');          
+                $response = $fb->get('/'.$page["fb_id"].'/events?time_filter=upcoming');  
+                file_put_contents("php://stderr", '/'.$page["fb_id"].'/events?time_filter=upcoming');          
                 $resev=$response->getDecodedBody();
              #   file_put_contents("php://stderr", print_r($resev["data"],true)); 
                 foreach ($resev["data"] as &$ev) {

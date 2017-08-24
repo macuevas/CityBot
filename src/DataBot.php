@@ -145,7 +145,7 @@ class DataBot
 			    return;
 			}else{
 				while ($fila = $res1->fetch_assoc()) {
-					$pages[]=$fila["fb_id"];
+					$pages[]=$fila;
 				}
 				$res1->free();
 				return $pages;
