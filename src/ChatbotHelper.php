@@ -361,14 +361,15 @@ class ChatbotHelper
                 if ($noev>=10)
                 {
                     break;
-                }                
+                }
+                file_put_contents("php://stderr", print_r($ev2,true));
                 $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
                 $resimg=$response2->getDecodedBody();
                 $fecha = $ev2["date"];
                 $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
                 #https://www.facebook.com/events/1082000648599128
-                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ".$ev2["lugar"], $resimg["data"]["url"], [
+                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
                             ], "https://www.facebook.com/events/".$ev2["id"]);
                 $noev=$noev + 1;
