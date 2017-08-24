@@ -345,7 +345,7 @@ class ChatbotHelper
                     $tmp["id"]=$ev["id"];
                     $tmp["description"]=$ev["description"];
                     $tmp["name"]=$ev["name"];
-                    $tmp["lugar"]=$page["Nombre"];
+                    $tmp["lugar"]=$page["nombre"];
                     $tmp["date"]=$ev["start_time"];
                     $eventos[]=$tmp;
                 }
