@@ -392,7 +392,19 @@ class ChatbotHelper
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_LIST,
                     [
-                            'elements' => $respuesta,
+                            'elements' => [
+                                new MessageElement(
+                                    'Classic T-Shirt Collection', // title
+                                    'See all our colors', // subtitle
+                                    'http://bit.ly/2pYCuIB', // image_url
+                                    [ // buttons
+                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
+                                            'View', // title
+                                            'POSTBACK' // postback value
+                                        )
+                                    ]
+                                )
+                            ],
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                             ]
