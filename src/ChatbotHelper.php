@@ -368,6 +368,10 @@ class ChatbotHelper
                 $fecha = $ev2["date"];
                 $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
+                $fecha2 = substr($fecha,5,2);
+                $fecha2 .= "-".substr($fecha,8,2);
+                $fecha2 .= "-".substr($fecha,0,4);
+                $fecha2 .= " ".substr($fecha,11);
                 #https://www.facebook.com/events/1082000648599128
              /* $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
@@ -375,7 +379,7 @@ class ChatbotHelper
                 */
                 $respuesta [] = new MessageElement(
                                     $ev2["name"], // title
-                                    "[".$fecha."] ". $ev2["lugar"], // subtitle
+                                    $ev2["lugar"]. " ".$fecha2." ". , // subtitle
                                     $resimg["data"]["url"], // image_url
                                     [ // buttons
                                        new MessageButton(MessageButton::TYPE_WEB, 
