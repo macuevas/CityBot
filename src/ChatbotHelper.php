@@ -398,7 +398,7 @@ class ChatbotHelper
                     [
                             'elements' => $respuesta,
                             'buttons' => [
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
                             ]
                         ]                               
             ));                  
