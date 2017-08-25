@@ -335,77 +335,83 @@ class ChatbotHelper
             }
             
             $Pages = $Data->GetPagesId($bus);
-            foreach ($Pages as &$page)
+            if (count($Pages)>0)
             {
-                $response = $fb->get('/'.$page["fb_id"].'/events?time_filter=upcoming');  
-                file_put_contents("php://stderr", '/'.$page["fb_id"].'/events?time_filter=upcoming');          
-                $resev=$response->getDecodedBody();
-             #   file_put_contents("php://stderr", print_r($resev["data"],true)); 
-                foreach ($resev["data"] as &$ev) {
-                    $tmp["id"]=$ev["id"];
-                    $tmp["description"]=$ev["description"];
-                    $tmp["name"]=$ev["name"];
-                    $tmp["lugar"]=$page["nombre"];
-                    $tmp["date"]=$ev["start_time"];
-                    $eventos[]=$tmp;
-                }
-            }
-            
-            $noev=1;
-
-            $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime($element["date"]));});
-            
-            usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
-
-            foreach ($eventos as &$ev2) {
-                if ($noev>=5)
+                foreach ($Pages as &$page)
                 {
-                    break;
+                    $response = $fb->get('/'.$page["fb_id"].'/events?time_filter=upcoming');  
+                    file_put_contents("php://stderr", '/'.$page["fb_id"].'/events?time_filter=upcoming');          
+                    $resev=$response->getDecodedBody();
+                 #   file_put_contents("php://stderr", print_r($resev["data"],true)); 
+                    foreach ($resev["data"] as &$ev) {
+                        $tmp["id"]=$ev["id"];
+                        $tmp["description"]=$ev["description"];
+                        $tmp["name"]=$ev["name"];
+                        $tmp["lugar"]=$page["nombre"];
+                        $tmp["date"]=$ev["start_time"];
+                        $eventos[]=$tmp;
+                    }
                 }
-                //file_put_contents("php://stderr", print_r($ev2,true));
-                $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
-                $resimg=$response2->getDecodedBody();
-                $fecha = $ev2["date"];
-                $fecha = str_replace("T"," ",$fecha);
-                $fecha = substr ($fecha,0,16);
-                $fecha2 = substr($fecha,5,2);
-                $fecha2 .= "-".substr($fecha,8,2);
-                $fecha2 .= "-".substr($fecha,0,4);
-                $fecha2 .= " ".substr($fecha,11);
-                #https://www.facebook.com/events/1082000648599128
-             /* $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
-                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
-                            ], "https://www.facebook.com/events/".$ev2["id"]);
-                */
-                $respuesta [] = new MessageElement(
-                                    $ev2["name"], // title
-                                    $ev2["lugar"]." => ".$fecha2." ", // subtitle
-                                    $resimg["data"]["url"], // image_url
-                                    [ // buttons
-                                       new MessageButton(MessageButton::TYPE_WEB, 
-                                            'View',
-                                            "https://www.facebook.com/events/".$ev2["id"]
-                                        )
-                                    ]
-                                );
-                $noev=$noev + 1;
+                
+                $noev=1;
+
+                $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime($element["date"]));});
+                
+                usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
+
+                foreach ($eventos as &$ev2) {
+                    if ($noev>=5)
+                    {
+                        break;
+                    }
+                    //file_put_contents("php://stderr", print_r($ev2,true));
+                    $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
+                    $resimg=$response2->getDecodedBody();
+                    $fecha = $ev2["date"];
+                    $fecha = str_replace("T"," ",$fecha);
+                    $fecha = substr ($fecha,0,16);
+                    $fecha2 = substr($fecha,5,2);
+                    $fecha2 .= "-".substr($fecha,8,2);
+                    $fecha2 .= "-".substr($fecha,0,4);
+                    $fecha2 .= " ".substr($fecha,11);
+                    #https://www.facebook.com/events/1082000648599128
+                 /* $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
+                                                new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
+                                ], "https://www.facebook.com/events/".$ev2["id"]);
+                    */
+                    $respuesta [] = new MessageElement(
+                                        $ev2["name"], // title
+                                        $ev2["lugar"]." => ".$fecha2." ", // subtitle
+                                        $resimg["data"]["url"], // image_url
+                                        [ // buttons
+                                           new MessageButton(MessageButton::TYPE_WEB, 
+                                                'View',
+                                                "https://www.facebook.com/events/".$ev2["id"]
+                                            )
+                                        ]
+                                    );
+                    $noev=$noev + 1;
+                }
+                
+                #$chatbotHelper->send($senderId,"Great!!!");
+                file_put_contents("php://stderr", "Show Events");
+                $this->send($this->getSenderId(),"I found these events:");
+
+                file_put_contents("php://stderr", print_r($respuesta,true));
+
+                $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                        StructuredMessage::TYPE_LIST,
+                        [
+                                'elements' => $respuesta,
+                                'buttons' => [
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
+                                ]
+                            ]                               
+                )); 
+            }else{
+                $this->send($this->getSenderId(),"No Events found");
             }
-            
-            #$chatbotHelper->send($senderId,"Great!!!");
-            file_put_contents("php://stderr", "Show Events");
-            $this->send($this->getSenderId(),"I found these events:");
-
-            file_put_contents("php://stderr", print_r($respuesta,true));
-
-            $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                    StructuredMessage::TYPE_LIST,
-                    [
-                            'elements' => $respuesta,
-                            'buttons' => [
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
-                            ]
-                        ]                               
-            ));                  
+                             
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
           file_put_contents("php://stderr", 'Graph returned an error: ' . $e->getMessage());
