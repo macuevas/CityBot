@@ -77,6 +77,7 @@ if ($senderId && $chatbotHelper->isMessage())
     {  
         $chatbotHelper->GetActivities();
     }else{
+        file_put_contents("php://stderr", "Mensaje=".$message);
         $replyMessage = $chatbotHelper->getAnswer($message,"witai");    
     }
 

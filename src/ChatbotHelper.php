@@ -379,7 +379,7 @@ class ChatbotHelper
                 */
                 $respuesta [] = new MessageElement(
                                     $ev2["name"], // title
-                                    $ev2["lugar"]. " ".$fecha2." " , // subtitle
+                                    $ev2["lugar"]." => ".$fecha2." ", // subtitle
                                     $resimg["data"]["url"], // image_url
                                     [ // buttons
                                        new MessageButton(MessageButton::TYPE_WEB, 
