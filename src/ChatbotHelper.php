@@ -362,7 +362,7 @@ class ChatbotHelper
                 {
                     break;
                 }
-                file_put_contents("php://stderr", print_r($ev2,true));
+                //file_put_contents("php://stderr", print_r($ev2,true));
                 $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
                 $resimg=$response2->getDecodedBody();
                 $fecha = $ev2["date"];
@@ -389,6 +389,9 @@ class ChatbotHelper
             
             #$chatbotHelper->send($senderId,"Great!!!");
             $this->send($this->getSenderId(),"I found these events:");
+
+            file_put_contents("php://stderr", print_r($respuesta,true));
+            
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_LIST,
                     [
