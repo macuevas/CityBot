@@ -358,7 +358,7 @@ class ChatbotHelper
             usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
             foreach ($eventos as &$ev2) {
-                if ($noev>=3)
+                if ($noev>=4)
                 {
                     break;
                 }
@@ -374,9 +374,9 @@ class ChatbotHelper
                             ], "https://www.facebook.com/events/".$ev2["id"]);
                 */
                 $respuesta [] = new MessageElement(
-                                    'Classic T-Shirt Collection', // title
+                                    $ev2["name"], // title
                                     'See all our colors', // subtitle
-                                    'http://bit.ly/2pYCuIB', // image_url
+                                    $resimg["data"]["url"], // image_url
                                     [ // buttons
                                         new MessageButton(MessageButton::TYPE_POSTBACK, // type
                                             'View', // title
