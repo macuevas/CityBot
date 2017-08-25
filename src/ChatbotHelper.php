@@ -358,7 +358,7 @@ class ChatbotHelper
             usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
             foreach ($eventos as &$ev2) {
-                if ($noev>=10)
+                if ($noev>=2)
                 {
                     break;
                 }
@@ -391,34 +391,11 @@ class ChatbotHelper
             $this->send($this->getSenderId(),"I found these events:");
 
             file_put_contents("php://stderr", print_r($respuesta,true));
-            
+
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_LIST,
                     [
-                            'elements' => [
-                                new MessageElement(
-                                    'Classic T-Shirt Collection', // title
-                                    'See all our colors', // subtitle
-                                    'http://bit.ly/2pYCuIB', // image_url
-                                    [ // buttons
-                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
-                                            'View', // title
-                                            'POSTBACK' // postback value
-                                        )
-                                    ]
-                                ),
-                                new MessageElement(
-                                    'Classic White T-Shirt', // title
-                                    '100% Cotton, 200% Comfortable', // subtitle
-                                    'http://bit.ly/2pb1hqh', // image_url
-                                    [ // buttons
-                                        new MessageButton(MessageButton::TYPE_WEB, // type
-                                            'View', // title
-                                            'https://google.com' // url
-                                        )
-                                    ]
-                                )
-                            ],
+                            'elements' => $respuesta,
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                             ]
