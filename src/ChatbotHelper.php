@@ -358,7 +358,7 @@ class ChatbotHelper
             usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
             foreach ($eventos as &$ev2) {
-                if ($noev>=4)
+                if ($noev>=5)
                 {
                     break;
                 }
