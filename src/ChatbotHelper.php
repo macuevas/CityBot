@@ -375,12 +375,12 @@ class ChatbotHelper
                 */
                 $respuesta [] = new MessageElement(
                                     $ev2["name"], // title
-                                    'See all our colors', // subtitle
+                                    "[".$fecha."] ". $ev2["lugar"], // subtitle
                                     $resimg["data"]["url"], // image_url
                                     [ // buttons
-                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
-                                            'View', // title
-                                            'POSTBACK' // postback value
+                                       new MessageButton(MessageButton::TYPE_WEB, 
+                                            'View',
+                                            "https://www.facebook.com/events/".$ev2["id"]
                                         )
                                     ]
                                 );
