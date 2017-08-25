@@ -369,9 +369,13 @@ class ChatbotHelper
                 $fecha = str_replace("T"," ",$fecha);
                 $fecha = substr ($fecha,0,16);
                 #https://www.facebook.com/events/1082000648599128
-                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
+             /* $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
                             ], "https://www.facebook.com/events/".$ev2["id"]);
+                */
+                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
+                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"])                                         
+                            ]);
                 $noev=$noev + 1;
             }
             
@@ -380,7 +384,10 @@ class ChatbotHelper
             $this->sendMsj(new StructuredMessage($this->getSenderId(),
                     StructuredMessage::TYPE_LIST,
                     [
-                        'elements' => $respuesta
+                        'elements' => $respuesta,
+                        'buttons' => [
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
+                        ]
                     ]                                
             ));                  
 
