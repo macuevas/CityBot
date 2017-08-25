@@ -411,10 +411,7 @@ class ChatbotHelper
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                             ]
-                        ],
-                        [
-                            new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
-                        ]                                
+                        ]                               
             ));                  
 
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
