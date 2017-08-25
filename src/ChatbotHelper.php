@@ -358,7 +358,7 @@ class ChatbotHelper
             usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
             foreach ($eventos as &$ev2) {
-                if ($noev>=2)
+                if ($noev>=3)
                 {
                     break;
                 }
@@ -388,6 +388,7 @@ class ChatbotHelper
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
+            file_put_contents("php://stderr", "Show Events");
             $this->send($this->getSenderId(),"I found these events:");
 
             file_put_contents("php://stderr", print_r($respuesta,true));
