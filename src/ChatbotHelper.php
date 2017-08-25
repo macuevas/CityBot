@@ -403,6 +403,17 @@ class ChatbotHelper
                                             'POSTBACK' // postback value
                                         )
                                     ]
+                                ),
+                                new MessageElement(
+                                    'Classic White T-Shirt', // title
+                                    '100% Cotton, 200% Comfortable', // subtitle
+                                    'http://bit.ly/2pb1hqh', // image_url
+                                    [ // buttons
+                                        new MessageButton(MessageButton::TYPE_WEB, // type
+                                            'View', // title
+                                            'https://google.com' // url
+                                        )
+                                    ]
                                 )
                             ],
                             'buttons' => [
