@@ -373,7 +373,7 @@ class ChatbotHelper
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
                             ], "https://www.facebook.com/events/".$ev2["id"]);
                 */
-                $respuesta []= new new MessageElement(
+                $respuesta [] = new MessageElement(
                                     'Classic T-Shirt Collection', // title
                                     'See all our colors', // subtitle
                                     'http://bit.ly/2pYCuIB', // image_url
