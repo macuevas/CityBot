@@ -373,19 +373,7 @@ class ChatbotHelper
                                             new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"],"compact")                                         
                             ], "https://www.facebook.com/events/".$ev2["id"]);
                 */
-                $respuesta []= new MessageElement($ev2["name"],"[".$fecha."] ". $ev2["lugar"], $resimg["data"]["url"], [
-                                            new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/events/".$ev2["id"])                                         
-                            ]);
-                $noev=$noev + 1;
-            }
-            
-            #$chatbotHelper->send($senderId,"Great!!!");
-            $this->send($this->getSenderId(),"I found these events:");
-            $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                    StructuredMessage::TYPE_LIST,
-                    [
-                            'elements' => [
-                                new MessageElement(
+                $respuesta []= new new MessageElement(
                                     'Classic T-Shirt Collection', // title
                                     'See all our colors', // subtitle
                                     'http://bit.ly/2pYCuIB', // image_url
@@ -395,19 +383,16 @@ class ChatbotHelper
                                             'POSTBACK' // postback value
                                         )
                                     ]
-                                ),
-                                new MessageElement(
-                                    'Classic White T-Shirt', // title
-                                    '100% Cotton, 200% Comfortable', // subtitle
-                                    'http://bit.ly/2pb1hqh', // image_url
-                                    [ // buttons
-                                        new MessageButton(MessageButton::TYPE_WEB, // type
-                                            'View', // title
-                                            'https://google.com' // url
-                                        )
-                                    ]
-                                )
-                            ],
+                                );
+                $noev=$noev + 1;
+            }
+            
+            #$chatbotHelper->send($senderId,"Great!!!");
+            $this->send($this->getSenderId(),"I found these events:");
+            $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                    StructuredMessage::TYPE_LIST,
+                    [
+                            'elements' => $respuesta,
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                             ]
