@@ -530,10 +530,14 @@ class ChatbotHelper
                # $respuesta []= new MessageElement($pag["name"],"  ", $pag["url"], $botones, "https://www.facebook.com/".$pag["fb_id"]);
                 $respuesta [] = new MessageElement(
                                         $pag["name"], // title
-                                        " TEST ", // subtitle
+                                        "PRUEBA ", // subtitle
                                         $pag["url"], // image_url
-                                        [],
-                                        "https://www.facebook.com/".$pag["fb_id"]
+                                        [ // buttons
+                                           new MessageButton(MessageButton::TYPE_WEB, 
+                                                'View',
+                                                "https://www.facebook.com/events/"
+                                            )
+                                        ]
                                     );
                 $noev=$noev + 1;
             }
