@@ -529,16 +529,16 @@ class ChatbotHelper
                 file_put_contents("php://stderr", print_r($botones)); 
                # $respuesta []= new MessageElement($pag["name"],"  ", $pag["url"], $botones, "https://www.facebook.com/".$pag["fb_id"]);
                 $respuesta [] = new MessageElement(
-                                        $pag["name"], // title
-                                        "PRUEBA ", // subtitle
-                                        $pag["url"], // image_url
-                                        [ // buttons
-                                           new MessageButton(MessageButton::TYPE_WEB, 
-                                                'View',
-                                                "https://www.facebook.com/events/"
-                                            )
-                                        ]
-                                    );
+                                    'Classic T-Shirt Collection', // title
+                                    'See all our colors', // subtitle
+                                    'http://bit.ly/2pYCuIB', // image_url
+                                    [ // buttons
+                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
+                                            'View', // title
+                                            'POSTBACK' // postback value
+                                        )
+                                    ]
+                                );
                 $noev=$noev + 1;
             }
             
@@ -559,30 +559,7 @@ class ChatbotHelper
                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
-                            'elements' => [
-                                new MessageElement(
-                                    'Classic T-Shirt Collection', // title
-                                    'See all our colors', // subtitle
-                                    'http://bit.ly/2pYCuIB', // image_url
-                                    [ // buttons
-                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
-                                            'View', // title
-                                            'POSTBACK' // postback value
-                                        )
-                                    ]
-                                ),
-                                new MessageElement(
-                                    'Classic White T-Shirt', // title
-                                    '100% Cotton, 200% Comfortable', // subtitle
-                                    'http://bit.ly/2pb1hqh', // image_url
-                                    [ // buttons
-                                        new MessageButton(MessageButton::TYPE_WEB, // type
-                                            'View', // title
-                                            'https://google.com' // url
-                                        )
-                                    ]
-                                )
-                            ],
+                            'elements' => $respuesta,
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                             ]
