@@ -547,15 +547,50 @@ class ChatbotHelper
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
                 file_put_contents("php://stderr", print_r($respuesta,true));
+               /* $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                        StructuredMessage::TYPE_LIST,
+                        [
+                            'elements' => $respuesta,
+                            'buttons' => [
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
+                            ]
+                        ]                               
+                ));*/
                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
-                                'elements' => $respuesta,
-                                'buttons' => [
-                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
-                                ]
-                            ]                               
-                ));
+                            'elements' => [
+                                new MessageElement(
+                                    'Classic T-Shirt Collection', // title
+                                    'See all our colors', // subtitle
+                                    'http://bit.ly/2pYCuIB', // image_url
+                                    [ // buttons
+                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
+                                            'View', // title
+                                            'POSTBACK' // postback value
+                                        )
+                                    ]
+                                ),
+                                new MessageElement(
+                                    'Classic White T-Shirt', // title
+                                    '100% Cotton, 200% Comfortable', // subtitle
+                                    'http://bit.ly/2pb1hqh', // image_url
+                                    [ // buttons
+                                        new MessageButton(MessageButton::TYPE_WEB, // type
+                                            'View', // title
+                                            'https://google.com' // url
+                                        )
+                                    ]
+                                )
+                            ],
+                            'buttons' => [
+                                new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
+                            ]
+                        ],
+                        [
+                            new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
+                        ]
+                    ));
                 file_put_contents("php://stderr","ENVIAMOS RESPUESTA DE LISTA");
                 return true;    
             }else{
