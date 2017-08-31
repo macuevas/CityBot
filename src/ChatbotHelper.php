@@ -532,12 +532,7 @@ class ChatbotHelper
                                         $pag["name"], // title
                                         " TEST ", // subtitle
                                         $pag["url"], // image_url
-                                        [ // buttons
-                                           new MessageButton(MessageButton::TYPE_WEB, 
-                                                'View',
-                                                "https://www.facebook.com/events/".$ev2["id"]
-                                            )
-                                        ],
+                                        ,
                                         "https://www.facebook.com/".$pag["fb_id"]
                                     );
                 $noev=$noev + 1;
