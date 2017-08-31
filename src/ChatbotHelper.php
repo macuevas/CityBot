@@ -586,9 +586,6 @@ class ChatbotHelper
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
                             ]
-                        ],
-                        [
-                            new QuickReplyButton(QuickReplyButton::TYPE_TEXT, 'QR button','PAYLOAD')
                         ]
                     ));
                 file_put_contents("php://stderr","ENVIAMOS RESPUESTA DE LISTA");
