@@ -544,10 +544,11 @@ class ChatbotHelper
             }
             
             #$chatbotHelper->send($senderId,"Great!!!");
-            if (count($paginas)>0)
+            if (count($paginas)>1)
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
-                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                file_put_contents("php://stderr", print_r($respuesta,true));
+                $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
                                 'elements' => $respuesta,
