@@ -515,7 +515,7 @@ class ChatbotHelper
             $noev=1;
             
             foreach ($paginas as &$pag) {
-                if ($noev>=10)
+                if ($noev>=4)
                 {
                     break;
                 }            
@@ -529,16 +529,16 @@ class ChatbotHelper
                 file_put_contents("php://stderr", print_r($botones)); 
                # $respuesta []= new MessageElement($pag["name"],"  ", $pag["url"], $botones, "https://www.facebook.com/".$pag["fb_id"]);
                 $respuesta [] = new MessageElement(
-                                    'Classic T-Shirt Collection', // title
-                                    'See all our colors', // subtitle
-                                    'http://bit.ly/2pYCuIB', // image_url
-                                    [ // buttons
-                                        new MessageButton(MessageButton::TYPE_POSTBACK, // type
-                                            'View', // title
-                                            'POSTBACK' // postback value
-                                        )
-                                    ]
-                                );
+                                        $pag["name"], // title
+                                        "PRUEBA ", // subtitle
+                                        $pag["url"], // image_url
+                                        [ // buttons
+                                           new MessageButton(MessageButton::TYPE_WEB, 
+                                                'View',
+                                                "https://www.facebook.com/events/"
+                                            )
+                                        ]
+                                    );
                 $noev=$noev + 1;
             }
             
@@ -547,24 +547,15 @@ class ChatbotHelper
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
                 file_put_contents("php://stderr", print_r($respuesta,true));
-               /* $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
-                            'elements' => $respuesta,
+                        'elements' => $respuesta,
                             'buttons' => [
                                 new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
                             ]
                         ]                               
-                ));*/
-                $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                        StructuredMessage::TYPE_LIST,
-                        [
-                            'elements' => $respuesta,
-                            'buttons' => [
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'First button', 'PAYLOAD 1')
-                            ]
-                        ]
-                    ));
+                ));
                 file_put_contents("php://stderr","ENVIAMOS RESPUESTA DE LISTA");
                 return true;    
             }else{
