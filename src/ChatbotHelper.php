@@ -555,7 +555,8 @@ class ChatbotHelper
                                     new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
                                 ]
                             ]                               
-                ));   
+                ));
+                file_put_contents("php://stderr","ENVIAMOS RESPUESTA DE LISTA");
                 return true;    
             }else{
                 return false;
