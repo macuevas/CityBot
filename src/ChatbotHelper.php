@@ -532,7 +532,12 @@ class ChatbotHelper
                                         $pag["name"], // title
                                         " ", // subtitle
                                         $pag["url"], // image_url
-                                        $botones,
+                                        [ // buttons
+                                           new MessageButton(MessageButton::TYPE_WEB, 
+                                                'View',
+                                                "https://www.facebook.com/events/".$ev2["id"]
+                                            )
+                                        ],
                                         "https://www.facebook.com/".$pag["fb_id"]
                                     );
                 $noev=$noev + 1;
@@ -542,12 +547,15 @@ class ChatbotHelper
             if (count($paginas)>0)
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
-                $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
-                            'elements' => $respuesta
-                        ]                                
-                ));      
+                                'elements' => $respuesta,
+                                'buttons' => [
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
+                                ]
+                            ]                               
+                ));   
                 return true;    
             }else{
                 return false;
