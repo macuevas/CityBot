@@ -532,7 +532,7 @@ class ChatbotHelper
                                         $pag["name"], // title
                                         " TEST ", // subtitle
                                         $pag["url"], // image_url
-                                        ,
+                                        [],
                                         "https://www.facebook.com/".$pag["fb_id"]
                                     );
                 $noev=$noev + 1;
