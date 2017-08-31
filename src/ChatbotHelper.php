@@ -527,7 +527,14 @@ class ChatbotHelper
                     $botones[] = new MessageButton(MessageButton::TYPE_CALL, 'Call',$pag["tel"],"compact") ;
                 }
                 file_put_contents("php://stderr", print_r($botones)); 
-                $respuesta []= new MessageElement($pag["name"],"  ", $pag["url"], $botones, "https://www.facebook.com/".$pag["fb_id"]);
+               # $respuesta []= new MessageElement($pag["name"],"  ", $pag["url"], $botones, "https://www.facebook.com/".$pag["fb_id"]);
+                $respuesta [] = new MessageElement(
+                                        $pag["name"], // title
+                                        " ", // subtitle
+                                        $pag["url"], // image_url
+                                        $botones,
+                                        "https://www.facebook.com/".$pag["fb_id"]
+                                    );
                 $noev=$noev + 1;
             }
             
@@ -536,7 +543,7 @@ class ChatbotHelper
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
                 $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                        StructuredMessage::TYPE_GENERIC,
+                        StructuredMessage::TYPE_LIST,
                         [
                             'elements' => $respuesta
                         ]                                
