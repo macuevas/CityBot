@@ -166,9 +166,8 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                       [
                           'text' => 'What are you looking for today?',
                           'buttons' => [
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Places',"CMD_PLACES"),
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Events',"CMD_EVENTS"),
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Activities',"CMD_ACTIVITIES")
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Where to Go',"CMD_PLACES"),
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'What to do',"CMD_EVENTS"),                              
                           ]
                       ]
                   )); 
