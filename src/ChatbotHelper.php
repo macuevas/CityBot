@@ -403,7 +403,7 @@ class ChatbotHelper
 
                 file_put_contents("php://stderr", print_r($respuesta,true));
 
-                if ($count($eventos)> $noevent)
+                if (count($eventos)> $noevent)
                 {
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
