@@ -361,7 +361,12 @@ class ChatbotHelper
 
                 #foreach ($eventos as &$ev2) {
                 file_put_contents("php://stderr", "Count == ".count($eventos)." $n==".$noevent);
-                for ($n=$noevent; $n < $noevent+4; $n++)
+                $evshow=4;
+                if (count($eventos)-($noevent+4)==1)
+                {
+                    $evshow=3;
+                }
+                for ($n=$noevent; $n < $noevent+$$evshow=4;; $n++)
                 {
                     if (count($eventos)<= $n)
                     {
@@ -406,38 +411,27 @@ class ChatbotHelper
                 #$chatbotHelper->send($senderId,"Great!!!");
                 file_put_contents("php://stderr", "Show Events ".$n);
                 $this->send($this->getSenderId(),"I found these events:");
-               
-                if ($n==1)
+                               
+                if (count($eventos)> $noevent)
                 {
-                    file_put_contents("php://stderr", "ULTIMO EVENTO");
+                    file_put_contents("php://stderr", "Has Mores cmd_more_events".$noevent);
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                            StructuredMessage::TYPE_GENERIC,
-                            [
-                                    'elements' => $respuesta
+                        StructuredMessage::TYPE_LIST,
+                        [
+                                'elements' => $respuesta,
+                                'buttons' => [
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events_'.$noevent)
+                                ]
                             ]                               
-                        )); 
+                    )); 
                 }else{
-                    if (count($eventos)> $noevent)
-                    {
-                        file_put_contents("php://stderr", "Has Mores cmd_more_events".$noevent);
-                        $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                            StructuredMessage::TYPE_LIST,
-                            [
-                                    'elements' => $respuesta,
-                                    'buttons' => [
-                                        new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events_'.$noevent)
-                                    ]
-                                ]                               
-                        )); 
-                    }else{
-                        $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                            StructuredMessage::TYPE_LIST,
-                            [
-                                    'elements' => $respuesta
-                            ]                               
-                        )); 
-                    }
-                }                
+                    $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                        StructuredMessage::TYPE_LIST,
+                        [
+                                'elements' => $respuesta
+                        ]                               
+                    )); 
+                }               
                 
             }else{
                 $this->send($this->getSenderId(),"No Events found");
