@@ -360,6 +360,7 @@ class ChatbotHelper
                 usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
                 #foreach ($eventos as &$ev2) {
+                file_put_contents("php://stderr", "Count == ".count($eventos)." $n==".$noevent);
                 for ($n=$noevent; $n < $noevent+4; $n++)
                 {
                     if (count($eventos)< $n)
