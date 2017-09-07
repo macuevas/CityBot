@@ -363,7 +363,7 @@ class ChatbotHelper
                 file_put_contents("php://stderr", "Count == ".count($eventos)." $n==".$noevent);
                 for ($n=$noevent; $n < $noevent+4; $n++)
                 {
-                    if (count($eventos)< $n)
+                    if (count($eventos)<= $n)
                     {
                         file_put_contents("php://stderr", "BREAK FOR");
                         break;
