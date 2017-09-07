@@ -365,7 +365,7 @@ class ChatbotHelper
                 {
                     if (count($eventos)< $n)
                     {
-                        file_put_contents("php://stderr", "BREAK FOR";
+                        file_put_contents("php://stderr", "BREAK FOR");
                         break;
                     }
                     /*if ($noev>=5)
