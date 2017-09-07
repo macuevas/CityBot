@@ -404,7 +404,7 @@ class ChatbotHelper
                 $noevent = $noevent + $n;
                 
                 #$chatbotHelper->send($senderId,"Great!!!");
-                file_put_contents("php://stderr", "Show Events");
+                file_put_contents("php://stderr", "Show Events ".$n);
                 $this->send($this->getSenderId(),"I found these events:");
                
                 if ($n==1)
