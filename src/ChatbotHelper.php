@@ -407,27 +407,37 @@ class ChatbotHelper
                 file_put_contents("php://stderr", "Show Events");
                 $this->send($this->getSenderId(),"I found these events:");
                
-
-                if (count($eventos)> $noevent)
+                if ($n==1)
                 {
-                    file_put_contents("php://stderr", "Has Mores cmd_more_events".$noevent);
+                    file_put_contents("php://stderr", "ULTIMO EVENTO");
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                        StructuredMessage::TYPE_LIST,
-                        [
-                                'elements' => $respuesta,
-                                'buttons' => [
-                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events_'.$noevent)
-                                ]
+                            StructuredMessage::TYPE_GENERIC,
+                            [
+                                    'elements' => $respuesta
                             ]                               
-                    )); 
+                        )); 
                 }else{
-                    $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                        StructuredMessage::TYPE_LIST,
-                        [
-                                'elements' => $respuesta
-                        ]                               
-                    )); 
-                }
+                    if (count($eventos)> $noevent)
+                    {
+                        file_put_contents("php://stderr", "Has Mores cmd_more_events".$noevent);
+                        $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                            StructuredMessage::TYPE_LIST,
+                            [
+                                    'elements' => $respuesta,
+                                    'buttons' => [
+                                        new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events_'.$noevent)
+                                    ]
+                                ]                               
+                        )); 
+                    }else{
+                        $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                            StructuredMessage::TYPE_LIST,
+                            [
+                                    'elements' => $respuesta
+                            ]                               
+                        )); 
+                    }
+                }                
                 
             }else{
                 $this->send($this->getSenderId(),"No Events found");
