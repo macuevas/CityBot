@@ -361,6 +361,7 @@ class ChatbotHelper
 
                 #foreach ($eventos as &$ev2) {
                 for ($n=$noevent; $n < $noevent+5; $n++)
+                {
                     /*if ($noev>=5)
                     {
                         break;
@@ -412,7 +413,7 @@ class ChatbotHelper
                                     new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events'.$noevent)
                                 ]
                             ]                               
-                )); 
+                    )); 
                 }else{
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
