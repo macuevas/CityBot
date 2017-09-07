@@ -176,7 +176,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 file_put_contents("php://stderr", "payload=".substr($payload,0,16));
                 if (substr($payload,0,16) == "cmd_more_events_")
                 {
-                    $noevent= substr($payload,15);
+                    $noevent= substr($payload,16);
                     $fecha = strtotime($chatbotHelper->chatbotAI->getDatetime());
                     file_put_contents("php://stderr", "Events=".$fecha . " view more ". $noevent);    
 
