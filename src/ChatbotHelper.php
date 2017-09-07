@@ -406,7 +406,7 @@ class ChatbotHelper
                                     );
                     $noev=$noev + 1;
                 }                                
-                $noevent = $noevent + $n;
+                $noevent = $n;
                 
                 #$chatbotHelper->send($senderId,"Great!!!");
                 file_put_contents("php://stderr", "Show Events ".$n. " de ".count($eventos));
