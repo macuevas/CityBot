@@ -362,6 +362,10 @@ class ChatbotHelper
                 #foreach ($eventos as &$ev2) {
                 for ($n=$noevent; $n < $noevent+4; $n++)
                 {
+                    if (count($eventos)< $n)
+                    {
+                        break;
+                    }
                     /*if ($noev>=5)
                     {
                         break;
@@ -395,7 +399,7 @@ class ChatbotHelper
                                     );
                     $noev=$noev + 1;
                 }                                
-                $noevent = $noevent + 4;
+                $noevent = $noevent + $n;
                 
                 #$chatbotHelper->send($senderId,"Great!!!");
                 file_put_contents("php://stderr", "Show Events");
