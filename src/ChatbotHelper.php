@@ -410,7 +410,7 @@ class ChatbotHelper
                         [
                                 'elements' => $respuesta,
                                 'buttons' => [
-                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events'.$noevent)
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events_'.$noevent)
                                 ]
                             ]                               
                     )); 
