@@ -173,6 +173,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                   )); 
             break;
             default:
+                file_put_contents("php://stderr", "payload=".substr($payload,0,16));
                 if (substr($payload,0,16) == "cmd_more_events_")
                 {
                     $noevnt= substr($payload,16);
