@@ -316,7 +316,7 @@ class ChatbotHelper
         return "My Name is CityBot" ;
     }
 
-    public function GetEvents($fechaev, $noquerie = false){
+    public function GetEvents($fechaev, $noquerie = false, $noevent=0){
         file_put_contents("php://stderr", "GetEvents");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
@@ -359,11 +359,13 @@ class ChatbotHelper
                 
                 usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
-                foreach ($eventos as &$ev2) {
-                    if ($noev>=5)
+                #foreach ($eventos as &$ev2) {
+                for ($n=$noevent; $n < $noevent+5; $n++)
+                    /*if ($noev>=5)
                     {
                         break;
-                    }
+                    }*/
+                    $ev2=$eventos[$n];
                     //file_put_contents("php://stderr", print_r($ev2,true));
                     $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
                     $resimg=$response2->getDecodedBody();
@@ -391,7 +393,8 @@ class ChatbotHelper
                                         ]
                                     );
                     $noev=$noev + 1;
-                }
+                }                                
+                $noevent = $noevent + 4;
                 
                 #$chatbotHelper->send($senderId,"Great!!!");
                 file_put_contents("php://stderr", "Show Events");
@@ -399,15 +402,26 @@ class ChatbotHelper
 
                 file_put_contents("php://stderr", print_r($respuesta,true));
 
-                $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                if ($count($eventos)> $noevent)
+                {
+                    $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
                                 'elements' => $respuesta,
                                 'buttons' => [
-                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events'.$noevent)
                                 ]
                             ]                               
                 )); 
+                }else{
+                    $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                        StructuredMessage::TYPE_LIST,
+                        [
+                                'elements' => $respuesta
+                        ]                               
+                    )); 
+                }
+                
             }else{
                 $this->send($this->getSenderId(),"No Events found");
             }
@@ -535,7 +549,7 @@ class ChatbotHelper
                                         [ // buttons
                                            new MessageButton(MessageButton::TYPE_WEB, 
                                                 'View',
-                                                "https://www.facebook.com/events/"
+                                                "https://www.facebook.com/".$pag["fb_id"]
                                             )
                                         ]
                                     );

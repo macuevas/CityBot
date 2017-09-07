@@ -172,6 +172,16 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                       ]
                   )); 
             break;
+            default:
+                if (substr($payload,0,16) == "cmd_more_events_")
+                {
+                    $noevnt= substr($payload,16);
+                    $fecha = strtotime($chatbotHelper->chatbotAI->getDatetime());
+                    file_put_contents("php://stderr", "Events=".$fecha . " view more ". $noevent);    
+
+                    $chatbotHelper->GetEvents($fecha,true,$noevent);
+                }
+            break;
 
     }
 }
