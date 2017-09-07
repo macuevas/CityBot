@@ -367,7 +367,7 @@ class ChatbotHelper
                         break;
                     }*/
                     $ev2=$eventos[$n];
-                    //file_put_contents("php://stderr", print_r($ev2,true));
+                    file_put_contents("php://stderr", $ev2["id"].'/picture?redirect=false&type=large');
                     $response2 = $fb->get('/'.$ev2["id"].'/picture?redirect=false&type=large'); 
                     $resimg=$response2->getDecodedBody();
                     $fecha = $ev2["date"];
