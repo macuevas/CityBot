@@ -360,7 +360,7 @@ class ChatbotHelper
                 usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
                 #foreach ($eventos as &$ev2) {
-                for ($n=$noevent; $n < $noevent+5; $n++)
+                for ($n=$noevent; $n < $noevent+4; $n++)
                 {
                     /*if ($noev>=5)
                     {
@@ -404,7 +404,7 @@ class ChatbotHelper
 
                 if (count($eventos)> $noevent)
                 {
-                    file_put_contents("php://stderr", "Has Mores");
+                    file_put_contents("php://stderr", "Has Mores cmd_more_events".$noevent);
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
