@@ -181,7 +181,17 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                     file_put_contents("php://stderr", "Events=".$fecha . " view more ". $noevent);    
 
                     $chatbotHelper->GetEvents($fecha,true,$noevent);
+
+                }elseif (substr($payload,0,16) == "cmd_more_places_")
+                {
+                    $noindex= substr($payload,16);                    
+                    file_put_contents("php://stderr", "Places view more ". $noindex);
+
+                    $chatbotHelper->GetPlaces("%",$noindex);
+                    
                 }
+
+
             break;
 
     }

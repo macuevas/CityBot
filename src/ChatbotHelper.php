@@ -510,7 +510,7 @@ class ChatbotHelper
     }
 
 
-     public function GetPlaces($busqueda = "%"){
+     public function GetPlaces($busqueda = "%", $noindex=0){
         file_put_contents("php://stderr", "GetPlaces");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
@@ -538,12 +538,23 @@ class ChatbotHelper
             }
             
             $noev=1;
-            
-            foreach ($paginas as &$pag) {
-                if ($noev>=5)
+
+            file_put_contents("php://stderr", "Count == ".count($eventos)." n==".$noindex);
+            $plshow=4;
+            if ((count($paginas)-($noindex+4))==1)
+            {
+                $plshow=3;
+            }
+            for ($n=$noindex; $n < $noindex + $plshow; $n++)
+            {
+                if (count($eventos)<= $n)
                 {
+                    file_put_contents("php://stderr", "BREAK FOR");
                     break;
-                }            
+                }
+            
+            #foreach ($paginas as &$pag) {
+                       
                 file_put_contents("php://stderr", $pag["name"]."\n".$pag["url"]."\n".$pag["fb_id"]); 
                 $botones= [];
                 $botones[] = new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$pag["fb_id"],"compact") ;
@@ -567,21 +578,32 @@ class ChatbotHelper
                 $noev=$noev + 1;
             }
             
+            $noindex = $n;
             #$chatbotHelper->send($senderId,"Great!!!");
             if (count($paginas)>1)
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
-                file_put_contents("php://stderr", print_r($respuesta,true));
-                $this->sendMsj(new StructuredMessage($this->getSenderId(),
-                        StructuredMessage::TYPE_LIST,
-                        [
-                        'elements' => $respuesta,
-                            'buttons' => [
-                                new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events')
-                            ]
-                        ]                               
-                ));
-                file_put_contents("php://stderr","ENVIAMOS RESPUESTA DE LISTA");
+                if (count($eventos)> $noevent)
+                {                    
+                    file_put_contents("php://stderr", print_r($respuesta,true));
+                    $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                            StructuredMessage::TYPE_LIST,
+                            [
+                                'elements' => $respuesta,
+                                'buttons' => [
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_places_'.$noindex)
+                                ]
+                            ]                               
+                    ));                 
+                }else{
+                    file_put_contents("php://stderr", print_r($respuesta,true));
+                    $this->sendMsj(new StructuredMessage($this->getSenderId(),
+                            StructuredMessage::TYPE_LIST,
+                            [
+                                'elements' => $respuesta
+                            ]                               
+                    ));                 
+                }
                 return true;    
             }else{
                 return false;
