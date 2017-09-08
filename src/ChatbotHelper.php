@@ -546,13 +546,13 @@ class ChatbotHelper
                 $plshow=3;
             }
             for ($n=$noindex; $n < $noindex + $plshow; $n++)
-            {
+            {                
                 if (count($paginas)<= $n)
                 {
                     file_put_contents("php://stderr", "BREAK FOR");
                     break;
                 }
-            
+                $pag = $paginas[$n];
             #foreach ($paginas as &$pag) {
                        
                 file_put_contents("php://stderr", $pag["name"]."\n".$pag["url"]."\n".$pag["fb_id"]); 
