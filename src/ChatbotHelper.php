@@ -583,7 +583,7 @@ class ChatbotHelper
             if (count($paginas)>1)
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
-                if (count($eventos)> $noevent)
+                if (count($paginas)> $noindex)
                 {                    
                     file_put_contents("php://stderr", print_r($respuesta,true));
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
