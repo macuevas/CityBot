@@ -539,7 +539,7 @@ class ChatbotHelper
             
             $noev=1;
 
-            file_put_contents("php://stderr", "Count == ".count($eventos)." n==".$noindex);
+            file_put_contents("php://stderr", "Count == ".count($paginas)." n==".$noindex);
             $plshow=4;
             if ((count($paginas)-($noindex+4))==1)
             {
@@ -547,7 +547,7 @@ class ChatbotHelper
             }
             for ($n=$noindex; $n < $noindex + $plshow; $n++)
             {
-                if (count($eventos)<= $n)
+                if (count($paginas)<= $n)
                 {
                     file_put_contents("php://stderr", "BREAK FOR");
                     break;
