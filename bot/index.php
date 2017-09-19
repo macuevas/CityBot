@@ -64,15 +64,16 @@ if ($senderId && $chatbotHelper->isMessage())
                                     ]
                                 ]                                
                             ));                                                   
-                break;
-            case "events":
-                break;
+                break;    
             default:
                 return "Hmmm, I'm not sure I understand. Can you ask again? Try \"show me events?\" or \"where is the library?\"";  
                 break;
          }
     }elseif($message=="places"){
         $chatbotHelper->GetPlaces();
+    }elseif($message=="events"){
+        $fecha = strtotime($chatbotHelper->chatbotAI->getDatetime());
+        $chatbotHelper-> $chatbotHelper->GetEvents($fecha);();
     }elseif($message == "activities")
     {  
         $chatbotHelper->GetActivities();
