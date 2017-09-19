@@ -74,7 +74,7 @@ if ($senderId && $chatbotHelper->isMessage())
     }elseif($message=="events"){
         $fecha = strtotime(date("Y-m-dTH:i:sa"));
         file_put_contents("php://stderr", "Eventos fecha=".$fecha);
-        $chatbotHelper->GetEvents($fecha);
+        $chatbotHelper->GetEvents($fecha,true);
     }elseif($message == "activities")
     {  
         $chatbotHelper->GetActivities();
