@@ -73,7 +73,7 @@ if ($senderId && $chatbotHelper->isMessage())
         $chatbotHelper->GetPlaces();
     }elseif($message=="events"){
         $fecha = strtotime($chatbotHelper->chatbotAI->getDatetime());
-        $chatbotHelper-> $chatbotHelper->GetEvents($fecha);();
+        $chatbotHelper-> $chatbotHelper->GetEvents($fecha);
     }elseif($message == "activities")
     {  
         $chatbotHelper->GetActivities();
