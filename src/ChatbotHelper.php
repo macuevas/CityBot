@@ -274,7 +274,7 @@ class ChatbotHelper
         $this->facebookSend->send(new StructuredMessage($this->getSenderId(),
           StructuredMessage::TYPE_BUTTON,
           [
-              'text' => "I’m CityBot and I am here to show you all the cool Places, Activities and Events in San Leandro.",
+              'text' => "I’m BexiCity and I am here to show you all the cool Places, Activities and Events in San Leandro.",
               'buttons' => [
                   new MessageButton(MessageButton::TYPE_POSTBACK, "Continue","CMD_OK")
               ]
@@ -313,7 +313,7 @@ class ChatbotHelper
 
     public function SayName()
     {        
-        return "My Name is CityBot" ;
+        return "My Name is BexiCity" ;
     }
 
     public function GetEvents($fechaev, $noquerie = false, $noevent=0){
