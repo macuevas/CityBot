@@ -75,7 +75,7 @@ if ($senderId && $chatbotHelper->isMessage())
         $fecha = strtotime(date("Y-m-dTH:i:sa"));
         file_put_contents("php://stderr", "Eventos fecha=".$fecha);
         $chatbotHelper->GetEvents($fecha,true);
-        
+
     }elseif($message == "activities")
     {  
         $chatbotHelper->GetActivities();
@@ -169,7 +169,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                       [
                           'text' => 'What are you looking for today?',
                           'buttons' => [
-                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Where to Go',"CMD_PLACES"),
+                              new MessageButton(MessageButton::TYPE_POSTBACK, 'Where to go',"CMD_PLACES"),
                               new MessageButton(MessageButton::TYPE_POSTBACK, 'What to do',"CMD_EVENTS"),                              
                           ]
                       ]

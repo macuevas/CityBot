@@ -148,6 +148,12 @@ class ChatbotHelper
                         file_put_contents("php://stderr", $resData);
                         return $resData;
                     break;
+                case "show_places":
+                        file_put_contents("php://stderr", "show_places");                        
+                        $resData = $Data->GetPlaces();
+                        file_put_contents("php://stderr", $resData);
+                        return $resData;
+                    break;
                 case "events":
                         $fecha = strtotime($this->chatbotAI->getDatetime());
                         file_put_contents("php://stderr", "Events=".$fecha);    
