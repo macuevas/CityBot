@@ -552,7 +552,7 @@ class ChatbotHelper
 
                 $tmp["name"]=$pageData["name"];
                 $tmp["tel"]=$pageData["phone"];
-                $tmp["desc"]=$pageData[""]
+                                
                 if ($tmp["description"]!="")
                 {
                     $paginas["desc"]=$tmp["description"];
