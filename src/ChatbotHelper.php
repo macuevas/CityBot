@@ -339,7 +339,7 @@ class ChatbotHelper
             }else{
                 $bus = "%";
             }
-            $wrong_bus=["go","event","I","events"];
+            $wrong_bus=["go","event","I","events","to do"];
             if (in_array($bus, $wrong_bus))
             {
                 $bus="%";
