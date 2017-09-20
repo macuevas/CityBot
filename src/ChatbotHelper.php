@@ -573,7 +573,7 @@ class ChatbotHelper
                 }
                 $pag = $paginas[$n];
             #foreach ($paginas as &$pag) {
-                       
+                file_put_contents("php://stderr",print_r($pag,true));
                 file_put_contents("php://stderr", $pag["name"]."\n".$pag["url"]."\n".$pag["fb_id"]); 
                 $botones= [];
                 $botones[] = new MessageButton(MessageButton::TYPE_WEB, 'View',"https://www.facebook.com/".$pag["fb_id"],"compact") ;
