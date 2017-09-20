@@ -339,6 +339,11 @@ class ChatbotHelper
             }else{
                 $bus = "%";
             }
+            $wrong_bus=["go","event","I","events"];
+            if (in_array($bus, $wrong_bus))
+            {
+                $bus="%";
+            }
             
             $Pages = $Data->GetPagesId($bus);
             if (count($Pages)>0)
