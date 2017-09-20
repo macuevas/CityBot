@@ -552,8 +552,14 @@ class ChatbotHelper
 
                 $tmp["name"]=$pageData["name"];
                 $tmp["tel"]=$pageData["phone"];
-
-                $paginas[]=$tmp;                
+                $tmp["desc"]=$pageData[""]
+                if ($tmp["description"]!="")
+                {
+                    $paginas["desc"]=$tmp["description"];
+                }else{
+                    $paginas["desc"]=$tmp["about"];
+                }
+                
             }
             
             $noev=1;
@@ -585,14 +591,11 @@ class ChatbotHelper
                # $respuesta []= new MessageElement($pag["name"],"  ", $pag["url"], $botones, "https://www.facebook.com/".$pag["fb_id"]);
                 $respuesta [] = new MessageElement(
                                         $pag["name"], // title
-                                        " ", // subtitle
+                                        $pag["desc"], // subtitle
                                         $pag["url"], // image_url
-                                        [ // buttons
-                                           new MessageButton(MessageButton::TYPE_WEB, 
-                                                'View',
-                                                "https://www.facebook.com/".$pag["fb_id"]
-                                            )
-                                        ]
+                                         // buttons
+                                        $botones
+                                        
                                     );
                 $noev=$noev + 1;
             }
