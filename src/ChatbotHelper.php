@@ -150,7 +150,7 @@ class ChatbotHelper
                     break;
                 case "show_places":
                         file_put_contents("php://stderr", "show_places");                        
-                        $resData = $Data->GetPlaces();
+                        $resData = $this->GetPlaces();
                         file_put_contents("php://stderr", $resData);
                         return $resData;
                     break;
