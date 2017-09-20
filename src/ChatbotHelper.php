@@ -548,7 +548,7 @@ class ChatbotHelper
 
                 $response2 = $fb->get('/'.$page["fb_id"].'/?fields=id,name,about,description,hours,location,phone,picture');  
                 //file_put_contents("php://stderr", '/'.$page["fb_id"].'/picture?redirect=false&type=large');          
-                $pageData=$response->getDecodedBody();
+                $pageData=$response2->getDecodedBody();
 
                 $tmp["name"]=$pageData["name"];
                 $tmp["tel"]=$pageData["phone"];
