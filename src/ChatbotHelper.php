@@ -555,9 +555,9 @@ class ChatbotHelper
                                 
                 if ($tmp["description"]!="")
                 {
-                    $paginas["desc"]=$tmp["description"];
+                    $tmp["desc"]=$pageData["description"];
                 }else{
-                    $paginas["desc"]=$tmp["about"];
+                    $tmp["desc"]=$pageData["about"];
                 }
                 
             }
