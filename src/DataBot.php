@@ -91,7 +91,7 @@ class DataBot
 			$categoria= "%";
 		}
 		file_put_contents("php://stderr", "places_events\n" . $Place );
-		$sql = "SELECT * FROM places_events WHERE nombre LIKE  '".$Place."' AND categorie = '".$categoria."' ORDER BY id";
+		$sql = "SELECT * FROM places_events WHERE nombre LIKE  '".$Place."' AND categories = '".$categoria."' ORDER BY id";
 		file_put_contents("php://stderr", "QUERY ". $sql . "\n" );
 		if ($res1 = $myConn2->query($sql)) {
 			if ($res1->num_rows === 0) {
