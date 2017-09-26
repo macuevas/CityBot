@@ -533,7 +533,7 @@ class ChatbotHelper
         try {
             file_put_contents("php://stderr", "Request"); 
             $Data = new Databot();
-            $Pages = $Data->GetPlaces($busqueda);
+            $Pages = $Data->GetPlaces($busqueda,$categoria);
             foreach ($Pages as &$page)
             {
                 $response = $fb->get('/'.$page["fb_id"].'/picture?redirect=false&type=large');  
