@@ -175,6 +175,27 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                       ]
                   )); 
             break;
+            case "CMD_CAT_CUL";
+                file_put_contents("php://stderr", "Places Cultural");
+                $chatbotHelper->GetPlaces("%",0,"%Cultural%");
+                break;
+            case "CMD_CAT_FAM";
+                file_put_contents("php://stderr", "Places Kids & Family");
+                $chatbotHelper->GetPlaces("%",0,"%Kids%&%Family%");
+                break;
+            case "CMD_CAT_RECREA";
+                file_put_contents("php://stderr", "Recreational");
+                $chatbotHelper->GetPlaces("%",0,"%Recreational%");
+                break;
+            case "CMD_CAT_RESTAURANT";
+                file_put_contents("php://stderr", "Restaurants");
+                $chatbotHelper->GetPlaces("%",0,"%Restaurants%");
+                break;
+            case "CMD_CAT_BARS";
+                file_put_contents("php://stderr", "Bars");
+                $chatbotHelper->GetPlaces("%",0,"%Bars%");
+                break;
+                
             default:
                 file_put_contents("php://stderr", "payload=".substr($payload,0,16));
                 if (substr($payload,0,16) == "cmd_more_events_")
@@ -185,12 +206,16 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
 
                     $chatbotHelper->GetEvents($fecha,true,$noevent);
 
-                }elseif (substr($payload,0,16) == "cmd_more_places_")
+                }elseif (substr($payload,0,16) == "cmd_more_places")
                 {
-                    $noindex= substr($payload,16);                    
-                    file_put_contents("php://stderr", "Places view more ". $noindex);
+                    $data=explode("|", $payload);
 
-                    $chatbotHelper->GetPlaces("%",$noindex);
+                    $noindex= $data[1];
+                    $busq=$data[2];
+                    $cat=$data[3];
+                    file_put_contents("php://stderr", "Places view more Index=". $noindex." Busqueda=".$busq." Categoria=".$cat);
+
+                    $chatbotHelper->GetPlaces($busq,$noindex,$cat);
                     
                 }
 

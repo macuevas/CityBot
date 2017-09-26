@@ -521,7 +521,7 @@ class ChatbotHelper
     }
 
 
-     public function GetPlaces($busqueda = "%", $noindex=0){
+     public function GetPlaces($busqueda = "%", $noindex=0, $categoria="%"){
         file_put_contents("php://stderr", "GetPlaces");         
         $fb = new \Facebook\Facebook([
           'app_id' => '1347080372047215',
@@ -608,14 +608,15 @@ class ChatbotHelper
             {                 
                 $this->send($this->getSenderId(),"I found these Places:");
                 if (count($paginas)> $noindex)
-                {                    
+                {                   
+                    $ViewMore='cmd_more_places|'.$noindex."|".$busqueda."|".$categoria;
                     file_put_contents("php://stderr", print_r($respuesta,true));
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
                             StructuredMessage::TYPE_LIST,
                             [
                                 'elements' => $respuesta,
                                 'buttons' => [
-                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_places_'.$noindex)
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', $ViewMore)
                                 ]
                             ]                               
                     ));                 
