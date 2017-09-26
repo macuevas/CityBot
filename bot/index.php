@@ -206,7 +206,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
 
                     $chatbotHelper->GetEvents($fecha,true,$noevent);
 
-                }elseif (substr($payload,0,16) == "cmd_more_places")
+                }elseif (substr($payload,0,15) == "cmd_more_places")
                 {
                     $data=explode("|", $payload);
 
