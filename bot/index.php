@@ -195,7 +195,18 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 file_put_contents("php://stderr", "Bars");
                 $chatbotHelper->GetPlaces("%",0,"%Bars%");
                 break;
-                
+            case "CMD_EVT_TODAY"
+                $fecha = strtotime("Today");
+                file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".$fecha . " view more ". $noevent);    
+
+                $chatbotHelper->GetEvents($fecha,true,$noevent);
+                break;
+            case "CMD_EVT_TOMO"
+                $fecha = strtotime("Tomorrow");
+                file_put_contents("php://stderr", "CMD_EVT_TOMO Events=".$fecha . " view more ". $noevent);    
+
+                $chatbotHelper->GetEvents($fecha,true,$noevent);
+                break;
             default:
                 file_put_contents("php://stderr", "payload=".substr($payload,0,16));
                 if (substr($payload,0,16) == "cmd_more_events_")
