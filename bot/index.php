@@ -197,7 +197,8 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 break;
             case "CMD_EVT_TODAY":
                 $fecha = strtotime("Today");
-                file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".$fecha . " view more ". $noevent);    
+                file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".$fecha->format('Y-m-d H:i:s') . " view more ". $noevent);    
+                file_put_contents("php://stderr", "CMD_EVT_TODAY NEXTWEEK=".strtotime("Next Week")->format('Y-m-d H:i:s') . " view more ". $noevent);  
 
                 $chatbotHelper->GetEvents($fecha,true,0);
                 break;
