@@ -367,7 +367,7 @@ class ChatbotHelper
                 
                 $noev=1;
 
-                $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime(substr($element["date"],0,19));});
+                $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime(substr($element["date"],0,19)));});
                 
                 usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
