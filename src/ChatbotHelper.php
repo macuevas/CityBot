@@ -362,7 +362,7 @@ class ChatbotHelper
                         $tmp["lugar"]=$page["nombre"];
                         $tmp["date"]=$ev["start_time"];
                         $eventos[]=$tmp;                        
-                        file_put_contents("php://stderr", $ev["name"]." Fecha==".strtotime($ev["start_time"]));   
+                        file_put_contents("php://stderr", $ev["name"]." Fecha==".strtotime($ev["start_time"])." Fecha2=".$ev["start_time"]);   
                     }
                 }
                 
