@@ -346,7 +346,8 @@ class ChatbotHelper
             }
             
             $Pages = $Data->GetPagesId($bus);
-            if (count($Pages)>0)
+            file_put_contents("php://stderr", "Fecha==".$fechaev);   
+            if (count($Pages)>0)                
             {
                 foreach ($Pages as &$page)
                 {
@@ -361,6 +362,8 @@ class ChatbotHelper
                         $tmp["lugar"]=$page["nombre"];
                         $tmp["date"]=$ev["start_time"];
                         $eventos[]=$tmp;
+                        strtotime($element["date"])
+                        file_put_contents("php://stderr", $ev["name"]." Fecha==".strtotime($ev["start_time"]));   
                     }
                 }
                 
