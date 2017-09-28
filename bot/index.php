@@ -196,8 +196,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 $chatbotHelper->GetPlaces("%",0,"%Bars%");
                 break;
             case "CMD_EVT_TODAY":
-                $fecha = strtotime("Today");
-                file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".date ("d - m - Y ",$fecha) . " view more ". $noevent);    
+                $fecha = strtotime("Today");                
                 file_put_contents("php://stderr", "CMD_EVT_TODAY NEXTWEEK=".date ("d - m - Y ",strtotime("Next Week")) . " view more ". $noevent);  
 
                 $chatbotHelper->GetEvents($fecha,true,0);
@@ -206,6 +205,16 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 $fecha = strtotime("Tomorrow");
                 file_put_contents("php://stderr", "CMD_EVT_TOMO Events=".$fecha . " view more ". $noevent);    
 
+                $chatbotHelper->GetEvents($fecha,true,0);
+                break;
+            case "CMD_EVT_TW":
+                $fecha = strtotime("This Week");
+                file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".date ("d - m - Y ",$fecha) . " view more ". $noevent);
+                $chatbotHelper->GetEvents($fecha,true,0);
+                break;
+             case "CMD_EVT_NW":
+                $fecha = strtotime("Next Week");
+                file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".date ("d - m - Y ",$fecha) . " view more ". $noevent);
                 $chatbotHelper->GetEvents($fecha,true,0);
                 break;
             default:
