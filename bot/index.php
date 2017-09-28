@@ -175,27 +175,27 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                       ]
                   )); 
             break;
-            case "CMD_CAT_CUL";
+            case "CMD_CAT_CUL":
                 file_put_contents("php://stderr", "Places Cultural");
                 $chatbotHelper->GetPlaces("%",0,"%Cultural%");
                 break;
-            case "CMD_CAT_FAM";
+            case "CMD_CAT_FAM":
                 file_put_contents("php://stderr", "Places Kids & Family");
                 $chatbotHelper->GetPlaces("%",0,"%Kids%&%Family%");
                 break;
-            case "CMD_CAT_RECREA";
+            case "CMD_CAT_RECREA":
                 file_put_contents("php://stderr", "Recreational");
                 $chatbotHelper->GetPlaces("%",0,"%Recreational%");
                 break;
-            case "CMD_CAT_RESTAURANT";
+            case "CMD_CAT_RESTAURANT":
                 file_put_contents("php://stderr", "Restaurants");
                 $chatbotHelper->GetPlaces("%",0,"%Restaurants%");
                 break;
-            case "CMD_CAT_BARS";
+            case "CMD_CAT_BARS":
                 file_put_contents("php://stderr", "Bars");
                 $chatbotHelper->GetPlaces("%",0,"%Bars%");
                 break;
-            case "CMD_EVT_TODAY"
+            case "CMD_EVT_TODAY":
                 $fecha = strtotime("Today");
                 file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".$fecha . " view more ". $noevent);    
 
