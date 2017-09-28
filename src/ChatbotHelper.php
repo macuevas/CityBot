@@ -426,12 +426,13 @@ class ChatbotHelper
                 if (count($eventos)> $noevent)
                 {
                     file_put_contents("php://stderr", "Has Mores cmd_more_events".$noevent);
+                    $Evpostback = "cmd_more_event|".$noevent."|".$noquerie."|".$fechaev;
                     $this->sendMsj(new StructuredMessage($this->getSenderId(),
                         StructuredMessage::TYPE_LIST,
                         [
                                 'elements' => $respuesta,
                                 'buttons' => [
-                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', 'cmd_more_events_'.$noevent)
+                                    new MessageButton(MessageButton::TYPE_POSTBACK, 'View More', $Evpostback)
                                 ]
                             ]                               
                     )); 

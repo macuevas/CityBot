@@ -219,13 +219,15 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 break;
             default:
                 file_put_contents("php://stderr", "payload=".substr($payload,0,16));
-                if (substr($payload,0,16) == "cmd_more_events_")
+                if (substr($payload,0,16) == "cmd_more_events")
                 {
-                    $noevent= substr($payload,16);
-                    $fecha = strtotime($chatbotHelper->chatbotAI->getDatetime());
+                    $data=explode("|", $payload);                    
+                    $noevent = $data[1];
+                    $busq = $data[2];
+                    $fecha = $data[3];
                     file_put_contents("php://stderr", "Events=".$fecha . " view more ". $noevent);    
 
-                    $chatbotHelper->GetEvents($fecha,true,$noevent);
+                    $chatbotHelper->GetEvents($fecha,$busq,$noevent);
 
                 }elseif (substr($payload,0,15) == "cmd_more_places")
                 {
