@@ -201,7 +201,7 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
 
                 $chatbotHelper->GetEvents($fecha,true,$noevent);
                 break;
-            case "CMD_EVT_TOMO"
+            case "CMD_EVT_TOMO":
                 $fecha = strtotime("Tomorrow");
                 file_put_contents("php://stderr", "CMD_EVT_TOMO Events=".$fecha . " view more ". $noevent);    
 
