@@ -361,14 +361,13 @@ class ChatbotHelper
                         $tmp["name"]=$ev["name"];
                         $tmp["lugar"]=$page["nombre"];
                         $tmp["date"]=$ev["start_time"];
-                        $eventos[]=$tmp;                        
-                        file_put_contents("php://stderr", $ev["name"]." Fecha==".strtotime($ev["start_time"])." Fecha2=".$ev["start_time"]);   
+                        $eventos[]=$tmp;                                                
                     }
                 }
                 
                 $noev=1;
 
-                $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime($element["date"]));});
+                $eventos = array_filter($eventos,function ($element) use ($fechaev) { return ($fechaev <= strtotime(substr($element["date"],0,19));});
                 
                 usort($eventos, array("DonMarkus\ChatbotHelper","sortFunction"));
 
