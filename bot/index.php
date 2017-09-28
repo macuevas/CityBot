@@ -199,13 +199,13 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 $fecha = strtotime("Today");
                 file_put_contents("php://stderr", "CMD_EVT_TODAY Events=".$fecha . " view more ". $noevent);    
 
-                $chatbotHelper->GetEvents($fecha,true,$noevent);
+                $chatbotHelper->GetEvents($fecha,true,0);
                 break;
             case "CMD_EVT_TOMO":
                 $fecha = strtotime("Tomorrow");
                 file_put_contents("php://stderr", "CMD_EVT_TOMO Events=".$fecha . " view more ". $noevent);    
 
-                $chatbotHelper->GetEvents($fecha,true,$noevent);
+                $chatbotHelper->GetEvents($fecha,true,0);
                 break;
             default:
                 file_put_contents("php://stderr", "payload=".substr($payload,0,16));
