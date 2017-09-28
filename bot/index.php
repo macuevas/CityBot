@@ -218,8 +218,8 @@ more specific search.", "https://blooming-spire-13615.herokuapp.com/resources/02
                 $chatbotHelper->GetEvents($fecha,true,0);
                 break;
             default:
-                file_put_contents("php://stderr", "payload=".substr($payload,0,16));
-                if (substr($payload,0,16) == "cmd_more_events")
+                file_put_contents("php://stderr", "payload=".substr($payload,0,15));
+                if (substr($payload,0,15) == "cmd_more_events")
                 {
                     $data=explode("|", $payload);                    
                     $noevent = $data[1];
